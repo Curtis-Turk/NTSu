@@ -6,11 +6,11 @@ import Scraper from "./components/Scraper";
 function App() {
   const [episode, setEpisode] = useState("");
 
-  const displayTracklist = () => {
-    if (episode.match(/nts\.live\/shows.*/g)) {
-      return console.log(episode);
-    }
-  };
+  // const displayTracklist = () => {
+  //   if (episode.match(/nts\.live\/shows.*/g)) {
+  //     return console.log(episode);
+  //   }
+  // };
 
   return (
     <div>

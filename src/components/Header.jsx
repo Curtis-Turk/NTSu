@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 function Header(props) {
-  
   const [textInput, setTextInput] = useState("");
 
   const onChange = (e) => {
@@ -9,18 +8,18 @@ function Header(props) {
   };
 
   const onSubmit = () => {
-    props.setEpisode(textInput)
+    props.setEpisode(textInput);
   };
 
   return (
     <div>
-    <h1>NTSu</h1>
-      <input type="text" onChange={onChange}/>
-      <button onClick={()=>onSubmit()} type="button">
+      <h1>NTSu</h1>
+      <input type="text" onChange={onChange} />
+      <button onClick={() => onSubmit()} type="button">
         🔍
       </button>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;
