@@ -12,3 +12,8 @@ input {
 textarea:focus, input:focus {
   color: white
 }
+
+button {
+  background: transparent;
+  border: 0;
+}

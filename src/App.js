@@ -1,27 +1,23 @@
 import "./App.css";
-import { useRef, useState } from "react";
+import { useState } from "react";
+import Header from "./components/Header";
+import Scraper from "./components/Scraper";
 
 function App() {
-  const [textInput, setTextInput] = useState("");
-  const [episode, setEpisode] = useState(textInput);
+  const [episode, setEpisode] = useState("");
 
-  const onChange = (e) => {
-    setTextInput(e.target.value);
-  };
-
-  const onSubmit = (e) => {
-    setEpisode(textInput);
+  const displayTracklist = () => {
+    if (episode.match(/nts\.live\/shows.*/g)) {
+      return console.log(episode);
+    }
   };
 
   return (
     <div>
-      <h1>NTSu</h1>
-      <input type="text" onChange={onChange} />
-      <button onClick={onSubmit} type="button">
-        GET TRACKS
-      </button>
+      <Header setEpisode={setEpisode} />
       <h2>Enter a NTS episode to view tracks</h2>
       <p>{episode}</p>
+      <Scraper episode={episode} />
     </div>
   );
 }
