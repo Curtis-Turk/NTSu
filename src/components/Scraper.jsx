@@ -8,7 +8,6 @@ function Scraper (props) {
       const $ = cheerio.load(html);
       const allTracks = [];
 
-      // console.log($(".track"))
     $('.track').each((_,e) => {
      let track = {title: null , artist: null};
         track.title = $(e).children('.track__title').text();
