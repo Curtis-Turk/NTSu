@@ -1,5 +1,6 @@
 h1{
   color: white;
+  padding: 10px;
 }
 
 input {
@@ -19,5 +20,8 @@ button {
 }
 
 .header{
+  display:flex; 
   flex-direction: row;
+  align-items: center;
+  padding: 5px;
 }

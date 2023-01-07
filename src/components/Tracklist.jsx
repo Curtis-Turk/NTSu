@@ -1,5 +1,4 @@
 const ListTrack = (track) => {
-  console.log(track.value.title);
   return (
     <li>
       {track.value.title} - {track.value.artist}
@@ -11,8 +10,13 @@ function Tracklist({ tracks }) {
   const listTracks = tracks.map((track) => (
     <ListTrack key={track.title} value={track} />
   ));
+  console.log(tracks);
 
-  return <ul>{listTracks}</ul>;
+  return (
+    <div>
+      <ul>{listTracks}</ul>
+    </div>
+  );
 }
 
 export default Tracklist;
