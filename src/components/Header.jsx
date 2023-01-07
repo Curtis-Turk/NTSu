@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Header(props) {
+function Header({ setEpisode }) {
   const [textInput, setTextInput] = useState("");
 
   const onChange = (e) => {
@@ -8,8 +8,12 @@ function Header(props) {
   };
 
   const onSubmit = () => {
-    props.setEpisode(textInput);
+    setEpisode(textInput);
   };
+
+  // if (episode.match(/nts\.live\/shows.*/g)) {
+  //   console.log(episode);
+  // }
 
   return (
     <div>
