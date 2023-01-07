@@ -9,14 +9,13 @@ function App() {
   const [tracks, setTracks] = useState([]);
 
   useEffect(() => {
-    // setTracks(Scraper(episode));
+    setTracks(Scraper(episode));
   }, [episode]);
 
   return (
     <div>
       <Header setEpisode={setEpisode} />
       <h2>Enter a NTS episode to view tracks</h2>
-      {/* <Scraper episode={episode} /> */}
       <Tracklist tracks={tracks} />
     </div>
   );
