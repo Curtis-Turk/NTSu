@@ -15,9 +15,18 @@ function App() {
 			const ntsData = await Scraper(episode);
 			setEpisodeData(ntsData);
 		};
-
 		fetchNts();
 	}, [episode]);
+
+	useEffect(() => {
+		let apiResponse = () => {
+			console.log('logging api fetch');
+			fetch('http://localhost:3000/api')
+				.then((response) => response.json())
+				.then((data) => console.log(data));
+		};
+		apiResponse();
+	}, []);
 
 	return (
 		<div>
