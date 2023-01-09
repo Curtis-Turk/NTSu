@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Scraper from './api/Scraper';
 import Tracklist from './components/Tracklist';
+import Landing from './components/Landing';
 
 function App() {
 	const [episode, setEpisode] = useState('');
@@ -21,8 +22,8 @@ function App() {
 		<div>
 			<Header setEpisode={setEpisode} />
 
-			<h2>Enter a NTS episode to view tracks</h2>
-			<h3>{episodeData.episodeTitle}</h3>
+			<Landing episode={episode} />
+			<h2>{episodeData.episodeTitle}</h2>
 			<Tracklist tracks={episodeData.allTracks} />
 		</div>
 	);
