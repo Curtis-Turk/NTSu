@@ -10,7 +10,7 @@ const ListTrack = (track) => {
 
 function Tracklist({ tracks }) {
   try {
-    const listTracks = tracks.map((track) => (
+    const listTracks = tracks?.map((track) => (
       <ListTrack key={track.title} value={track} />
     ));
   
