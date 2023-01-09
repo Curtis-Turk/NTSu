@@ -12,11 +12,10 @@ function Scraper(episode) {
 			$('.track').each((_, e) => {
 				let track = { title: null, artist: null };
 				track.title = $(e).children('.track__title').text();
-				track.artist = $(e).children('.track__artist').text();
+				track.artist = $(e).children('.track__artist').first().text();
+				console.log($(e).children('.track__artist'));
 				allTracks.push(track);
 			});
-			console.log(episodeTitle);
-			console.log(allTracks);
 
 			return { episodeTitle: episodeTitle, allTracks: allTracks };
 		});

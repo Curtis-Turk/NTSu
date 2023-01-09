@@ -9,8 +9,6 @@ function App() {
 	const [episodeData, setEpisodeData] = useState([]);
 
 	useEffect(() => {
-		// console.log("episodeData", episodeData);
-
 		let fetchNts = async () => {
 			const ntsData = await Scraper(episode);
 			setEpisodeData(ntsData);

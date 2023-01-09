@@ -8,11 +8,9 @@ const ListTrack = (track) => {
 
 function Tracklist({ tracks }) {
   try {
-    console.log("tracks", tracks);
     const listTracks = tracks.map((track) => (
       <ListTrack key={track.title} value={track} />
     ));
-    // console.log(tracks);
   
     return (
       <div>

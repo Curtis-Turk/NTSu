@@ -16,7 +16,6 @@ function Header({ setEpisode }) {
   }
 
   // if (episode.match(/nts\.live\/shows.*/g)) {
-    // console.log("header running");
   // }
 
 
