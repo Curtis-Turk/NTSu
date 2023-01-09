@@ -9,7 +9,14 @@ function App() {
   const [tracks, setTracks] = useState([]);
 
   useEffect(() => {
-    setTracks(Scraper(episode));
+    // console.log("tracks", tracks);
+
+    let fetchNts = async () => {
+      return await Scraper(episode);
+    };
+
+    let ntsInfo = fetchNts();
+    setTracks(ntsInfo);
   }, [episode]);
 
   return (

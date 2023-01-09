@@ -4,7 +4,7 @@ function Scraper(episode) {
   const allTracks = [];
   let episodeTitle = "";
 
-  fetch(episode)
+  return fetch(episode)
     .then((response) => response.text())
     .then((html) => {
       const $ = cheerio.load(html);
@@ -16,10 +16,13 @@ function Scraper(episode) {
         allTracks.push(track);
       });
       console.log(episodeTitle);
+      console.log(allTracks);
+
+      return allTracks;
     });
 
   // return { episodeTitle: episodeTitle, allTracks: allTracks };
-  return allTracks;
+  // return allTracks;
 }
 
 export default Scraper;
