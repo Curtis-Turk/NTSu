@@ -6,14 +6,14 @@ import Tracklist from './components/Tracklist';
 
 function App() {
 	const [episode, setEpisode] = useState('');
-	const [tracks, setTracks] = useState([]);
+	const [episodeData, setEpisodeData] = useState([]);
 
 	useEffect(() => {
-		// console.log("tracks", tracks);
+		// console.log("episodeData", episodeData);
 
 		let fetchNts = async () => {
 			const ntsData = await Scraper(episode);
-			setTracks(ntsData);
+			setEpisodeData(ntsData);
 		};
 
 		fetchNts();
@@ -28,8 +28,8 @@ function App() {
 				try this -
 				https://www.nts.live/shows/canyoufeelthesun-w-call-super-parris/episodes/can-you-feel-the-sun-5th-january-2023
 			</p>
-			<h3>{episode}</h3>
-			<Tracklist tracks={tracks} />
+			<h3>{episodeData.episodeTitle}</h3>
+			<Tracklist tracks={episodeData.allTracks} />
 		</div>
 	);
 }
