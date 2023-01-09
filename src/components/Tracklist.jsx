@@ -7,17 +7,22 @@ const ListTrack = (track) => {
 };
 
 function Tracklist({ tracks }) {
-  console.log("tracks", tracks);
-  const listTracks = tracks?.map((track) => (
-    <ListTrack key={track.title} value={track} />
-  ));
-  // console.log(tracks);
+  try {
+    console.log("tracks", tracks);
+    const listTracks = tracks.map((track) => (
+      <ListTrack key={track.title} value={track} />
+    ));
+    // console.log(tracks);
+  
+    return (
+      <div>
+        <ul>{listTracks}</ul>
+      </div>
+    );
+  } catch (error) {
+    console.log("custom tracklist errror")
+  } 
 
-  return (
-    <div>
-      <ul>{listTracks}</ul>
-    </div>
-  );
 }
 
 export default Tracklist;
