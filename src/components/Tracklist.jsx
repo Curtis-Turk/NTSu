@@ -1,7 +1,9 @@
 const ListTrack = (track) => {
   return (
     <li>
-      {track.value.title} - {track.value.artist}
+      <div className="track_artist">{track.value.artist}</div>
+      <div className="track_title">{track.value.title}</div>
+      <br/>
     </li>
   );
 };

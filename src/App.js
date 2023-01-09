@@ -22,10 +22,6 @@ function App() {
 			<Header setEpisode={setEpisode} />
 
 			<h2>Enter a NTS episode to view tracks</h2>
-			<p>
-				try this -
-				https://www.nts.live/shows/canyoufeelthesun-w-call-super-parris/episodes/can-you-feel-the-sun-5th-january-2023
-			</p>
 			<h3>{episodeData.episodeTitle}</h3>
 			<Tracklist tracks={episodeData.allTracks} />
 		</div>
