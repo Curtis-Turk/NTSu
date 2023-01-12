@@ -6,9 +6,7 @@ const Track = (track) => {
 
   useEffect(() => {
     bandcampSearch(track.value).then((data) => {
-      console.log("data", data);
       setTrackinfo(data.trackurl);
-      // console.log("trackinfo", trackInfo);
     });
   }, [track]);
 
@@ -18,16 +16,12 @@ const Track = (track) => {
         <div className="track_artist">{track.value.artist}</div>
         <div className="track_title">{track.value.title}</div>
       </div>
-      <div className="get_details">&gt;</div>
-      <div className="bandcamp">
-        {trackInfo ? <div>{trackInfo}</div> : <div>No link found</div>}
+      <div>
+        <a className="get_details" href={trackInfo}>
+          &gt;
+        </a>
       </div>
-      {/* <button className="get_details" onClick={bandcampSearch}>
-        &gt;
-      </button> */}
     </li>
   );
 };
-
-// onClick={bandcampSearch(track)}
 export default Track;

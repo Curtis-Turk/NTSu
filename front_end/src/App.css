@@ -49,4 +49,6 @@ li {
 .get_details {
   font-weight: bold;
   font-size: 25px;
+  color: #FFFFFF;
+  text-decoration: none;
 }
