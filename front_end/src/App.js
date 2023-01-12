@@ -4,22 +4,28 @@ import Header from "./components/Header";
 import Scraper from "./api/Scraper";
 import Tracklist from "./components/Tracklist";
 import Landing from "./components/Landing";
-import bandcampSearch from "./api/bandcampSearch";
+import discogsSearch from "./api/discogsSearch";
 
 function App() {
   const [episode, setEpisode] = useState("");
-  const [episodeData, setEpisodeData] = useState([]);
+  const [episodeData, setEpisodeData] = useState({});
 
   useEffect(() => {
-    let fetchNts = async () => {
-      const ntsData = await Scraper(episode);
-      setEpisodeData(ntsData);
-    };
-    fetchNts();
+    if (episode) {
+      // console.log(episode);
+      let fetchNts = async () => {
+        const ntsData = await Scraper(episode);
+        setEpisodeData(ntsData);
+      };
+      fetchNts();
+    }
   }, [episode]);
 
   useEffect(() => {
-    if (episodeData.allTracks) bandcampSearch(episodeData.allTracks[0]);
+    if (Object.keys(episodeData).length) {
+      console.log(episodeData);
+      //   discogsSearch(episodeData.allTracks[0]);
+    }
   }, [episodeData]);
 
   return (

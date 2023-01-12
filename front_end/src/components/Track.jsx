@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import bandcampSearch from "../api/bandcampSearch";
+import bandcamp from "../images/bandcamp.png";
+// import discogsSearch from "../api/discogsSearch";
 
 const Track = (track) => {
   const [trackInfo, setTrackinfo] = useState(null);
@@ -10,13 +12,15 @@ const Track = (track) => {
     });
   }, [track]);
 
+  // discogsSearch(track.value);
+
   return (
     <li>
       <div className="track_details">
         <div className="track_artist">{track.value.artist}</div>
         <div className="track_title">{track.value.title}</div>
       </div>
-      <div>
+      <div className="bandcamp">
         {trackInfo ? (
           <a
             className="get_details"
@@ -24,7 +28,7 @@ const Track = (track) => {
             href={trackInfo}
             target="_blank"
           >
-            &gt;
+            <img alt="bandcamp" src={bandcamp}></img>
           </a>
         ) : (
           <div> </div>

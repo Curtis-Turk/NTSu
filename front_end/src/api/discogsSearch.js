@@ -1,11 +1,11 @@
-const bandcampSearch = (track) => {
+const discogsSearch = (track) => {
   if (track) {
     const searchTitle = track.title.split(" ").join("+");
     const searchArtist = track.artist.split(" ").join("+");
 
-    const url = `https://bandcamp.com/search?q=${searchTitle}+${searchArtist}&item_type=t&from=results`;
+    const url = `https://www.discogs.com/search/?q=${searchTitle}+${searchArtist}&type=master`;
 
-    return fetch("http://localhost:3001/bandcamp", {
+    return fetch("http://localhost:3001/discogs", {
       method: "POST",
       body: JSON.stringify({
         title: track.title,
@@ -17,4 +17,4 @@ const bandcampSearch = (track) => {
   }
 };
 
-export default bandcampSearch;
+export default discogsSearch;

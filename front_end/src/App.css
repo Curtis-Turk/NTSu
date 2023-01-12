@@ -41,14 +41,23 @@ li {
   padding-bottom: 22px;
   width: 50%;
   display: flex;
-  /* justify-content:space-between */
+  justify-content: space-between;
+  overflow-x: scroll;
 }
+
 .track_details {
   padding-right: 30px;
 }
+
 .get_details {
   font-weight: bold;
   font-size: 25px;
   color: #FFFFFF;
   text-decoration: none;
+}
+
+.bandcamp img{
+  /* size: 40px; */
+  width: 40px;
+  height: auto
 }
