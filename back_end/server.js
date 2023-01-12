@@ -3,7 +3,7 @@ import cors from "cors";
 import pkg from "body-parser";
 const { json } = pkg;
 // import { json } from "body-parser";
-import bandcampSearch from "./api/bandcampSearch.js";
+import bandcampFetch from "./api/bandcampFetch.js";
 const app = express();
 
 app.use(cors());
@@ -14,10 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/bandcamp", async (req, res) => {
-  // const targetUrl = req.body.url;
-  // const scrapedData = await scrapeData(targetUrl);
-  let data = await bandcampSearch(req.body.url);
-  // console.log(data);
+  let data = await bandcampFetch(req.body);
   res.json(data);
 });
 
