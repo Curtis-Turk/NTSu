@@ -32,7 +32,11 @@ const bandcampSearch = (track) => {
 
     fetch("http://localhost:3001/bandcamp", {
       method: "POST",
-      body: JSON.stringify({ url: url }),
+      body: JSON.stringify({
+        title: track.title,
+        artist: track.artist,
+        url: url,
+      }),
       headers: { "Content-Type": "application/json" },
     })
       .then((response) => response.json())
