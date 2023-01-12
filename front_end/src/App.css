@@ -2,7 +2,9 @@ h1{
   color: white;
   padding: 10px;
 }
-
+h2{
+  padding: 10px;
+}
 input {
   border: 0;
   outline: 0;
@@ -36,8 +38,15 @@ ul {
 }
 
 li {
-  padding-bottom: 15px;
+  padding-bottom: 22px;
   width: 50%;
   display: flex;
-  justify-content:space-between
+  /* justify-content:space-between */
+}
+.track_details {
+  padding-right: 30px;
+}
+.get_details {
+  font-weight: bold;
+  font-size: 25px;
 }

@@ -1,4 +1,4 @@
-import cheerio from "cheerio";
+import { load } from "cheerio";
 
 async function Scraper(episode) {
   const allTracks = [];
@@ -6,7 +6,7 @@ async function Scraper(episode) {
 
   const response = await fetch(episode);
   const html = await response.text();
-  const $ = cheerio.load(html);
+  const $ = load(html);
   episodeTitle = $("h1").text();
   $(".track").each((_, e) => {
     let track = { title: null, artist: null };
