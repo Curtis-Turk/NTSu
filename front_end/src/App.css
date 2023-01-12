@@ -34,3 +34,10 @@ ul {
   text-transform: uppercase;
   font-weight: bold;
 }
+
+li {
+  padding-bottom: 15px;
+  width: 50%;
+  display: flex;
+  justify-content:space-between
+}
