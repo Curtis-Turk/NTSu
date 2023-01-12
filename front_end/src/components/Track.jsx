@@ -17,9 +17,18 @@ const Track = (track) => {
         <div className="track_title">{track.value.title}</div>
       </div>
       <div>
-        <a className="get_details" href={trackInfo}>
-          &gt;
-        </a>
+        {trackInfo ? (
+          <a
+            className="get_details"
+            rel="noreferrer"
+            href={trackInfo}
+            target="_blank"
+          >
+            &gt;
+          </a>
+        ) : (
+          <div> </div>
+        )}
       </div>
     </li>
   );
