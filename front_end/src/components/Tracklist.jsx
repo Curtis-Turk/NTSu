@@ -12,7 +12,8 @@ function Tracklist({ tracks }) {
       </div>
     );
   } catch (error) {
-    console.log("custom tracklist errror");
+    console.log(error);
+    return <div>We couldn't find that set, paste another NTS link</div>;
   }
 }
 

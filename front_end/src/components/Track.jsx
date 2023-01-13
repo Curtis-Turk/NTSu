@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import bandcampSearch from "../api/bandcampSearch";
-import bandcampIcon from "../images/bandcamp.png";
+import bandcampIcon from "../images/bandcampIcon.png";
 import discogIcon from "../images/discogsIcon.png";
 import discogsSearch from "../api/discogsSearch";
 import Link from "./Link";
