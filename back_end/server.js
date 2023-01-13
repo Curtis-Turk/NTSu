@@ -2,9 +2,13 @@ import express from "express";
 import cors from "cors";
 import pkg from "body-parser";
 const { json } = pkg;
+import dotenv from "dotenv";
+dotenv.config();
+
 import discogsFetch from "./api/discogsFetch.js";
 import bandcampFetch from "./api/bandcampFetch.js";
 import youtubeSearch from "./api/youtubeFetch.js";
+
 const app = express();
 
 app.use(cors());
@@ -20,10 +24,14 @@ app.post("/bandcamp", async (req, res) => {
 });
 
 app.post("/discogs", async (req, res) => {
+  req.body.secret = process.env.DISCOGS_SECRET;
+  req.body.key = process.env.DISCOGS_CONSUMER_KEY;
   let data = await discogsFetch(req.body);
   res.json(data);
 });
+
 app.post("/youtube", async (req, res) => {
+  req.body.key = process.env.YOUTUBE_KEY;
   let data = await youtubeSearch(req.body);
   res.json(data);
 });

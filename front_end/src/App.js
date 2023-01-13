@@ -4,8 +4,8 @@ import Header from "./components/Header";
 import Scraper from "./api/Scraper";
 import Tracklist from "./components/Tracklist";
 import Landing from "./components/Landing";
-// import discogsSearch from "./api/discogsSearch";
-import youtubeSearch from "./api/youtubeSearch";
+import discogsSearch from "./api/discogsSearch";
+// import youtubeSearch from "./api/youtubeSearch";
 
 function App() {
   const [episode, setEpisode] = useState("");
@@ -24,9 +24,9 @@ function App() {
 
   useEffect(() => {
     if (Object.keys(episodeData).length) {
-      console.log(episodeData);
-      youtubeSearch(episodeData.allTracks[9]);
-      // discogsSearch(episodeData.allTracks[9]);
+      // console.log(episodeData);
+      // youtubeSearch(episodeData.allTracks[9]);
+      console.log(discogsSearch(episodeData.allTracks[9]));
     }
   }, [episodeData]);
 
@@ -35,7 +35,8 @@ function App() {
       <Header setEpisode={setEpisode} />
       <Landing episode={episode} />
       <h2>{episodeData.episodeTitle}</h2>
-      <Tracklist tracks={episodeData.allTracks} />
+      {/* <div></div> */}
+      {/* <Tracklist tracks={episodeData.allTracks} /> */}
     </div>
   );
 }
