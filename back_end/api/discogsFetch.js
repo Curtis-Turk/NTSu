@@ -5,11 +5,16 @@ const discogsSearch = async ({ title, artist, url, secret, key }) => {
 
   return fetch(fullUrl)
     .then((response) => response.json())
-    .then((data) => `www.discogs.com${data.results[0].uri}`);
+    .then((data) => {
+      if (data.results) {
+        if (data.results[0]) {
+          return { trackurl: `https://www.discogs.com${data.results[0].uri}` };
+        }
+      }
+    });
 };
 
 export default discogsSearch;
-
 // "Authorization": "OAuth oauth_consumer_key=\"" + DISCOGS_CONSUMER_KEY +
 // "\",oauth_nonce=\"" + Date.now() +
 // "\",oauth_signature=\"" + DISCOGS_SECRET +

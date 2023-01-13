@@ -3,7 +3,7 @@ import Track from "./Track";
 function Tracklist({ tracks }) {
   try {
     const listTracks = tracks?.map((track) => (
-      <Track key={track.title} value={track} />
+      <Track key={track.title} track={track} />
     ));
 
     return (
