@@ -17,6 +17,44 @@ const Track = ({ track }) => {
     });
   }, [track]);
 
+  const bandcamp = () => {
+    return (
+      <div className="bandcamp">
+        {bandcampTrackInfo ? (
+          <a
+            className="get_details"
+            rel="noreferrer"
+            href={bandcampTrackInfo}
+            target="_blank"
+          >
+            <img alt="bandcamp" src={bandcampIcon}></img>
+          </a>
+        ) : (
+          <div> </div>
+        )}
+      </div>
+    );
+  };
+
+  const discogs = () => {
+    return (
+      <div className="discogs">
+        {discogsTrackInfo ? (
+          <a
+            className="get_details"
+            rel="noreferrer"
+            href={discogsTrackInfo}
+            target="_blank"
+          >
+            <img alt="discogs" src={discogIcon}></img>
+          </a>
+        ) : (
+          <div> </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <li>
       <div className="track_details">
@@ -24,34 +62,8 @@ const Track = ({ track }) => {
         <div className="track_title">{track.title}</div>
       </div>
       <div className="site_links">
-        <div className="bandcamp">
-          {bandcampTrackInfo ? (
-            <a
-              className="get_details"
-              rel="noreferrer"
-              href={bandcampTrackInfo}
-              target="_blank"
-            >
-              <img alt="bandcamp" src={bandcampIcon}></img>
-            </a>
-          ) : (
-            <div> </div>
-          )}
-        </div>
-        <div className="discogs">
-          {discogsTrackInfo ? (
-            <a
-              className="get_details"
-              rel="noreferrer"
-              href={discogsTrackInfo}
-              target="_blank"
-            >
-              <img alt="discogs" src={discogIcon}></img>
-            </a>
-          ) : (
-            <div> </div>
-          )}
-        </div>
+        {bandcamp()}
+        {discogs()}
       </div>
     </li>
   );
