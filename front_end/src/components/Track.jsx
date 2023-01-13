@@ -23,33 +23,35 @@ const Track = ({ track }) => {
         <div className="track_artist">{track.artist}</div>
         <div className="track_title">{track.title}</div>
       </div>
-      <div className="bandcamp">
-        {bandcampTrackInfo ? (
-          <a
-            className="get_details"
-            rel="noreferrer"
-            href={bandcampTrackInfo}
-            target="_blank"
-          >
-            <img alt="bandcamp" src={bandcampIcon}></img>
-          </a>
-        ) : (
-          <div> </div>
-        )}
-      </div>
-      <div className="discogs">
-        {discogsTrackInfo ? (
-          <a
-            className="get_details"
-            rel="noreferrer"
-            href={discogsTrackInfo}
-            target="_blank"
-          >
-            <img alt="discogs" src={discogIcon}></img>
-          </a>
-        ) : (
-          <div> </div>
-        )}
+      <div className="site_links">
+        <div className="bandcamp">
+          {bandcampTrackInfo ? (
+            <a
+              className="get_details"
+              rel="noreferrer"
+              href={bandcampTrackInfo}
+              target="_blank"
+            >
+              <img alt="bandcamp" src={bandcampIcon}></img>
+            </a>
+          ) : (
+            <div> </div>
+          )}
+        </div>
+        <div className="discogs">
+          {discogsTrackInfo ? (
+            <a
+              className="get_details"
+              rel="noreferrer"
+              href={discogsTrackInfo}
+              target="_blank"
+            >
+              <img alt="discogs" src={discogIcon}></img>
+            </a>
+          ) : (
+            <div> </div>
+          )}
+        </div>
       </div>
     </li>
   );

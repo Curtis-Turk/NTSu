@@ -39,14 +39,20 @@ ul {
 
 li {
   padding-bottom: 22px;
-  width: 100%;
+  width: 50%;
   display: flex;
   justify-content: space-between;
-  overflow-x: scroll;
+  overflow-x: visible;
 }
 
 .track_details {
   padding-right: 30px;
+}
+
+.site_links {
+  display: flex;
+  width: 25%;
+  justify-content: space-between;
 }
 
 .get_details {
