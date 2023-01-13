@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from "react";
 import bandcampSearch from "../api/bandcampSearch";
-import bandcamp from "../images/bandcamp.png";
-// import discogsSearch from "../api/discogsSearch";
+import bandcampIcon from "../images/bandcamp.png";
+import discogIcon from "../images/discogsIcon.png";
+import discogsSearch from "../api/discogsSearch";
 
 const Track = (track) => {
-  const [trackInfo, setTrackinfo] = useState(null);
+  const [bandcampTrackInfo, setBandcampTrackInfo] = useState(null);
+  const [discogsTrackInfo, setDiscogsTrackInfo] = useState(null);
 
   useEffect(() => {
     bandcampSearch(track.value).then((data) => {
-      setTrackinfo(data.trackurl);
+      setBandcampTrackInfo(data.trackurl);
+    });
+    discogsSearch(track.value).then((data) => {
+      setDiscogsTrackInfo(data.trackurl);
     });
   }, [track]);
 
-  // discogsSearch(track.value);
+  //
 
   return (
     <li>
@@ -21,14 +26,28 @@ const Track = (track) => {
         <div className="track_title">{track.value.title}</div>
       </div>
       <div className="bandcamp">
-        {trackInfo ? (
+        {bandcampTrackInfo ? (
           <a
             className="get_details"
             rel="noreferrer"
-            href={trackInfo}
+            href={bandcampTrackInfo}
             target="_blank"
           >
-            <img alt="bandcamp" src={bandcamp}></img>
+            <img alt="bandcamp" src={bandcampIcon}></img>
+          </a>
+        ) : (
+          <div> </div>
+        )}
+      </div>
+      <div className="discogs">
+        {discogsTrackInfo ? (
+          <a
+            className="get_details"
+            rel="noreferrer"
+            href={discogsTrackInfo}
+            target="_blank"
+          >
+            Discogs<img alt="discogs" src={discogIcon}></img>
           </a>
         ) : (
           <div> </div>
