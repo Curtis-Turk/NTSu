@@ -3,6 +3,7 @@ import bandcampSearch from "../api/bandcampSearch";
 import bandcampIcon from "../images/bandcamp.png";
 import discogIcon from "../images/discogsIcon.png";
 import discogsSearch from "../api/discogsSearch";
+import Link from "./Link";
 
 const Track = ({ track }) => {
   const [bandcampTrackInfo, setBandcampTrackInfo] = useState(null);
@@ -17,44 +18,6 @@ const Track = ({ track }) => {
     });
   }, [track]);
 
-  const bandcamp = () => {
-    return (
-      <div className="bandcamp">
-        {bandcampTrackInfo ? (
-          <a
-            className="get_details"
-            rel="noreferrer"
-            href={bandcampTrackInfo}
-            target="_blank"
-          >
-            <img alt="bandcamp" src={bandcampIcon}></img>
-          </a>
-        ) : (
-          <div> </div>
-        )}
-      </div>
-    );
-  };
-
-  const discogs = () => {
-    return (
-      <div className="discogs">
-        {discogsTrackInfo ? (
-          <a
-            className="get_details"
-            rel="noreferrer"
-            href={discogsTrackInfo}
-            target="_blank"
-          >
-            <img alt="discogs" src={discogIcon}></img>
-          </a>
-        ) : (
-          <div> </div>
-        )}
-      </div>
-    );
-  };
-
   return (
     <li>
       <div className="track_details">
@@ -62,8 +25,16 @@ const Track = ({ track }) => {
         <div className="track_title">{track.title}</div>
       </div>
       <div className="site_links">
-        {bandcamp()}
-        {discogs()}
+        <Link
+          className={"bandcamp"}
+          trackInfo={bandcampTrackInfo}
+          icon={bandcampIcon}
+        />
+        <Link
+          className={"discogs"}
+          trackInfo={discogsTrackInfo}
+          icon={discogIcon}
+        />
       </div>
     </li>
   );
