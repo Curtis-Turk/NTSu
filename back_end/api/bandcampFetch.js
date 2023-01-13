@@ -8,9 +8,8 @@ const bandcampSearch = async ({ title, artist, url }) => {
       const $ = load(html);
       let fetchTitle = $(".heading").first().text().trim();
       let fetchArtist = $(".subhead").first().text().trim().slice(3);
-
-      console.log(artist, title);
-      console.log(fetchArtist, fetchTitle);
+      // console.log(artist, title);
+      // console.log(fetchArtist, fetchTitle);
       let trackurl = $(".itemurl").first().text().split("\n").join("");
 
       return { trackurl: trackurl };

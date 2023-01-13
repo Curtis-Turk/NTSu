@@ -1,11 +1,11 @@
-const discogsSearch = (track) => {
+const youtubeSearch = (track) => {
   if (track) {
     const searchTitle = track.title.split(" ").join("+");
     const searchArtist = track.artist.split(" ").join("+");
 
-    const url = `https://api.discogs.com/database/search?artist=${searchArtist}&${searchTitle}&per_page=3&page=1`;
+    const url = `https://youtube.googleapis.com/youtube/v3/search?q=${searchArtist}%20${searchTitle}`;
 
-    return fetch("http://localhost:3001/discogs", {
+    return fetch("http://localhost:3001/youtube", {
       method: "POST",
       body: JSON.stringify({
         title: track.title,
@@ -17,4 +17,4 @@ const discogsSearch = (track) => {
   }
 };
 
-export default discogsSearch;
+export default youtubeSearch;

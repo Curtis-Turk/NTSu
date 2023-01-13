@@ -2,8 +2,9 @@ import express from "express";
 import cors from "cors";
 import pkg from "body-parser";
 const { json } = pkg;
-// import { json } from "body-parser";
+import discogsFetch from "./api/discogsFetch.js";
 import bandcampFetch from "./api/bandcampFetch.js";
+import youtubeSearch from "./api/youtubeFetch.js";
 const app = express();
 
 app.use(cors());
@@ -15,6 +16,15 @@ app.get("/", (req, res) => {
 
 app.post("/bandcamp", async (req, res) => {
   let data = await bandcampFetch(req.body);
+  res.json(data);
+});
+
+app.post("/discogs", async (req, res) => {
+  let data = await discogsFetch(req.body);
+  res.json(data);
+});
+app.post("/youtube", async (req, res) => {
+  let data = await youtubeSearch(req.body);
   res.json(data);
 });
 
