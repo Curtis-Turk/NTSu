@@ -12,17 +12,30 @@ const Track = ({ track }) => {
   const [discogsTrackInfo, setDiscogsTrackInfo] = useState(null);
   const [youtubeTrackInfo, setYoutubeTrackInfo] = useState(null);
 
-  useEffect(() => {
-    bandcampSearch(track).then((data) => {
-      setBandcampTrackInfo(data.trackurl);
-    });
-    discogsSearch(track).then((data) => {
-      setDiscogsTrackInfo(data.trackurl);
-    });
-    youtubeSearch(track).then((data) => {
-      setYoutubeTrackInfo(data.trackurl);
-    });
-  }, [track]);
+  useEffect(() => {}, [
+    track,
+    bandcampTrackInfo,
+    discogsTrackInfo,
+    youtubeTrackInfo,
+  ]);
+
+  const getLinks = () => {
+    if (!bandcampTrackInfo) {
+      bandcampSearch(track).then((data) => {
+        setBandcampTrackInfo(data.trackurl);
+      });
+    }
+    if (!discogsTrackInfo) {
+      discogsSearch(track).then((data) => {
+        setDiscogsTrackInfo(data.trackurl);
+      });
+    }
+    if (!youtubeTrackInfo) {
+      youtubeSearch(track).then((data) => {
+        setYoutubeTrackInfo(data.trackurl);
+      });
+    }
+  };
 
   return (
     <li>
@@ -31,6 +44,9 @@ const Track = ({ track }) => {
         <div className="track_title">{track.title}</div>
       </div>
       <div className="site_links">
+        <div className="get_details" onClick={getLinks}>
+          &gt;
+        </div>
         <Link
           className={"bandcamp"}
           trackInfo={bandcampTrackInfo}

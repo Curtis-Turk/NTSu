@@ -9,6 +9,7 @@ function Header({ setEpisode }) {
 
   const onSubmit = () => {
     setEpisode(textInput);
+    setTextInput("");
   };
 
   const devEpisode = () => {
@@ -23,7 +24,7 @@ function Header({ setEpisode }) {
   return (
     <div className="header">
       <h1>NTSu</h1>
-      <input type="text" onChange={onChange} />
+      <input type="text" onChange={onChange} value={textInput} />
       <button onClick={() => onSubmit()} type="button">
         🔍
       </button>

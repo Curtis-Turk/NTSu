@@ -6,9 +6,12 @@ const youtubeSearch = async ({ title, artist, url, key }) => {
   return fetch(fullUrl)
     .then((response) => response.json())
     .then((data) => {
-      return {
-        trackurl: `https://www.youtube.com/watch?v=${data.items[0].id.videoId}`,
-      };
+      console.log(data);
+      if (data.items) {
+        return {
+          trackurl: `https://www.youtube.com/watch?v=${data.items[0].id.videoId}`,
+        };
+      }
     });
 };
 

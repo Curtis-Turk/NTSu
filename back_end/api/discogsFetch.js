@@ -6,6 +6,7 @@ const discogsSearch = async ({ title, artist, url, secret, key }) => {
   return fetch(fullUrl)
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       if (data.results) {
         if (data.results[0]) {
           return { trackurl: `https://www.discogs.com${data.results[0].uri}` };

@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
+import ntsScraper from "./api/ntsScraper";
 import Header from "./components/Header";
-import Scraper from "./api/bandcampScraper";
 import Tracklist from "./components/Tracklist";
 import Landing from "./components/Landing";
 // import discogsSearch from "./api/discogsSearch";
@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     if (episode) {
       let fetchNts = async () => {
-        const ntsData = await Scraper(episode);
+        const ntsData = await ntsScraper(episode);
         setEpisodeData(ntsData);
       };
       fetchNts();

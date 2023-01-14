@@ -2,9 +2,11 @@ h1{
   color: white;
   padding: 10px;
 }
+
 h2{
   padding: 10px;
 }
+
 input {
   border: 0;
   outline: 0;
@@ -12,7 +14,7 @@ input {
   border-bottom: 1px solid white;
 }
 
-textarea:focus, input:focus {
+textarea, input{
   color: white
 }
 
@@ -42,11 +44,13 @@ li {
   width: 75%;
   display: flex;
   justify-content: space-between;
-  overflow-x: visible;
+  /* overflow-x: visible; */
 }
 
 .track_details {
   padding-right: 30px;
+  white-space: nowrap;
+  overflow-x: scroll;
 }
 
 .site_links {
@@ -62,13 +66,17 @@ li {
   text-decoration: none;
 }
 
+.get_details:hover {
+  cursor:pointer;
+  color: orange
+ }
+
 .youtube img{
   width: 40px;
   height: auto
 }
 
 .bandcamp img{
-  /* size: 40px; */
   width: 40px;
   height: auto
 }
