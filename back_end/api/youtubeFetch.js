@@ -1,14 +1,15 @@
-// import { load } from "cheerio";
-// import fetch from "node-fetch";
+import fetch from "node-fetch";
 
 const youtubeSearch = async ({ title, artist, url, key }) => {
-  // Authorization: Bearer [YOUR_ACCESS_TOKEN]
-  // Accept: application/json
-  // return fetch(url)
-  //   .then((response) => response.text())
-  //   .then((html) => {
-  //     console.log(html);
-  //   });
+  let fullUrl = `${url}&key=${key}`;
+
+  return fetch(fullUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      return {
+        trackurl: `https://www.youtube.com/watch?v=${data.items[0].id.videoId}`,
+      };
+    });
 };
 
 export default youtubeSearch;

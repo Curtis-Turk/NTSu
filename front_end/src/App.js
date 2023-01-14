@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
-import Scraper from "./api/Scraper";
+import Scraper from "./api/bandcampScraper";
 import Tracklist from "./components/Tracklist";
 import Landing from "./components/Landing";
 // import discogsSearch from "./api/discogsSearch";

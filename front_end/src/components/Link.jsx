@@ -13,7 +13,7 @@ function Link({ className, trackInfo, icon }) {
           <img alt={className} src={icon}></img>
         </a>
       ) : (
-        <div> </div>
+        <img alt=""></img>
       )}
     </div>
   );
