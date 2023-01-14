@@ -21,6 +21,12 @@ textarea, input{
 button {
   background: transparent;
   border: 0;
+  color: white;
+}
+button:hover{
+  font-size: larger;
+  cursor: pointer;
+  
 }
 
 .header{
@@ -68,7 +74,8 @@ li {
 
 .get_details:hover {
   cursor:pointer;
-  color: orange
+  color: orange;
+  font-weight: bolder;
  }
 
 .youtube img{

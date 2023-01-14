@@ -29,7 +29,7 @@ function Header({ setEpisode }) {
         🔍
       </button>
       <button onClick={() => devEpisode()} type="button">
-        🔍
+        Dev-btn🔍
       </button>
     </div>
   );
