@@ -32,14 +32,16 @@ function App() {
   return (
     <div>
       <Header setEpisode={setEpisode} />
-      <Landing episode={episode} />
       <div id="main-card">
-        <h2>{episodeData.episodeTitle}</h2>
+        <Landing episode={episode} />
         <img
           className="episode-image"
           src={episodeData.episodeImage}
           alt=""
         ></img>
+        {Object.keys(episodeData).length ? (
+          <h2>{episodeData.episodeTitle}</h2>
+        ) : null}
         <Tracklist tracks={episodeData.allTracks} />
       </div>
     </div>
