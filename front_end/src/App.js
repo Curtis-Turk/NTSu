@@ -33,8 +33,15 @@ function App() {
     <div>
       <Header setEpisode={setEpisode} />
       <Landing episode={episode} />
-      <h2>{episodeData.episodeTitle}</h2>
-      <Tracklist tracks={episodeData.allTracks} />
+      <div id="main-card">
+        <h2>{episodeData.episodeTitle}</h2>
+        <img
+          className="episode-image"
+          src={episodeData.episodeImage}
+          alt=""
+        ></img>
+        <Tracklist tracks={episodeData.allTracks} />
+      </div>
     </div>
   );
 }

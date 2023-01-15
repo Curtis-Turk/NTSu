@@ -1,8 +1,9 @@
 import { load } from "cheerio";
 
-async function Scraper(episode) {
+async function ntsScraper(episode) {
   const allTracks = [];
   let episodeTitle = "";
+  let episodeImage = "";
 
   const response = await fetch(episode);
   const html = await response.text();
@@ -12,9 +13,16 @@ async function Scraper(episode) {
     let track = { title: null, artist: null };
     track.title = $(e).children(".track__title").text();
     track.artist = $(e).children(".track__artist").first().text();
+    // console.log(track);
     allTracks.push(track);
   });
-  return { episodeTitle: episodeTitle, allTracks: allTracks };
+  episodeImage = $(".background-image").first().attr("style").slice(21, -1);
+
+  return {
+    episodeTitle: episodeTitle,
+    allTracks: allTracks,
+    episodeImage: episodeImage,
+  };
 }
 
-export default Scraper;
+export default ntsScraper;

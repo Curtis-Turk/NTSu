@@ -23,7 +23,7 @@ function Header({ setEpisode }) {
 
   return (
     <div className="header">
-      <h1>NTSu</h1>
+      <h1 onClick={() => window.location.reload(false)}>NTSu</h1>
       <input type="text" onChange={onChange} value={textInput} />
       <button onClick={() => onSubmit()} type="button">
         🔍
