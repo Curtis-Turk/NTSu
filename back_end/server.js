@@ -8,6 +8,20 @@ dotenv.config();
 import discogsFetch from "./api/discogsFetch.js";
 import bandcampFetch from "./api/bandcampFetch.js";
 import youtubeSearch from "./api/youtubeFetch.js";
+import mongoose from "mongoose";
+
+mongoose.connect("mongodb://localhost/ntsu", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const connection = mongoose.connection;
+
+connection.once("open", () => {
+  console.log("MongoDB database connection established successfully");
+});
+
+const Episode = mongoose.model("Episode", episodeSchema);
 
 const app = express();
 
