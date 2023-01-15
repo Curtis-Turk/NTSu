@@ -1,4 +1,5 @@
 import express from "express";
+import Episode from "../models/Episode";
 
 const router = express.Router();
 
