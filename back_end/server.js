@@ -8,7 +8,12 @@ dotenv.config();
 import discogsFetch from "./api/discogsFetch.js";
 import bandcampFetch from "./api/bandcampFetch.js";
 import youtubeSearch from "./api/youtubeFetch.js";
+
 import mongoose from "mongoose";
+mongoose.set("strictQuery", false);
+
+import episodesRoute from "./routes/episodesRoute.js";
+import episodeSchema from "./models/Episode.js";
 
 mongoose.connect("mongodb://localhost/ntsu", {
   useNewUrlParser: true,
@@ -21,12 +26,12 @@ connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
 
-const Episode = mongoose.model("Episode", episodeSchema);
-
 const app = express();
 
 app.use(cors());
 app.use(json());
+
+app.use("/episodes", episodesRoute);
 
 app.get("/", (req, res) => {
   res.json({ message: "welcome" });

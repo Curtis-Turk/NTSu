@@ -24,7 +24,6 @@ button {
 button:hover{
   font-size: larger;
   cursor: pointer;
-  
 }
 
 .header{
@@ -36,7 +35,6 @@ button:hover{
   top: 0;
   z-index: 999;
   width: 100%;
-  /* height: 100px; */
   background-color: black;
 }
 
@@ -50,11 +48,6 @@ h2{
 
 .episode-image{
   width: 75%;
-  /* padding-left: 15px; */
-  /* position: sticky; */
-  /* top: 75px; */
-  /* z-index: -1; */
-  overflow-y: hidden;
 }
 
 ul {
@@ -70,17 +63,14 @@ ul {
 }
 
 li {
-  /* padding: 20px; */
   background-color: black;
   padding-bottom: 22px;
   width: 75%;
   display: flex;
   justify-content: space-between;
-  /* overflow-x: visible; */
 }
 
 .track_details {
-
   padding-right: 30px;
   white-space: nowrap;
   overflow-x: scroll;

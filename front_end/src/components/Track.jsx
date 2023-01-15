@@ -12,12 +12,12 @@ const Track = ({ track }) => {
   const [discogsTrackInfo, setDiscogsTrackInfo] = useState(null);
   const [youtubeTrackInfo, setYoutubeTrackInfo] = useState(null);
 
-  useEffect(() => {}, [
-    track,
-    bandcampTrackInfo,
-    discogsTrackInfo,
-    youtubeTrackInfo,
-  ]);
+  // useEffect(() => {}, [
+  //   track,
+  //   bandcampTrackInfo,
+  //   discogsTrackInfo,
+  //   youtubeTrackInfo,
+  // ]);
 
   const getLinks = () => {
     if (!bandcampTrackInfo) {
