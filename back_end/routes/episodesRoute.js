@@ -1,5 +1,6 @@
 import express from "express";
 import Episode from "../models/Episode.js";
+import ntsScraper from "../api/ntsScraper.js";
 
 const router = express.Router();
 
@@ -8,21 +9,25 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const { episodeTitle, episodeImage, allTracks } = req.body;
+  const { episodeUrl } = req.body;
 
-  const newEpisode = new Episode({
-    episodeTitle: episodeTitle,
-    episodeImage: episodeImage,
-    allTracks: allTracks,
-  });
-
-  // console.log(newEpisode);
-
-  newEpisode.save((error) => {
-    if (error) {
-      res.status(500).send(error);
+  Episode.findOne({ episodeUrl: episodeUrl }, async (err, existingEpisode) => {
+    if (err) {
+      res.status(500).send(err);
+    } else if (existingEpisode) {
+      res.status(409).send(existingEpisode);
     } else {
-      res.send(newEpisode);
+      const ntsData = await ntsScraper(episodeUrl);
+      const newEpisode = new Episode(ntsData);
+      newEpisode.save((error) => {
+        if (error) {
+          res.status(500).send(error);
+        } else {
+          res.send(newEpisode);
+        }
+      });
+
+      res.send({ message: "need to save" });
     }
   });
 });

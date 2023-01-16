@@ -12,6 +12,10 @@ const trackSchema = new mongoose.Schema({
 });
 
 const episodeSchema = new mongoose.Schema({
+  episodeUrl: {
+    type: String,
+    required: true,
+  },
   episodeTitle: {
     type: String,
     required: true,

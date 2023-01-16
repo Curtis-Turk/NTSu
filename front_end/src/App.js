@@ -3,20 +3,25 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Tracklist from "./components/Tracklist";
 import Landing from "./components/Landing";
-import saveEpisode from "./api/saveEpisode";
+import fetchEpisode from "./api/fetchEpisode";
 // import discogsSearch from "./api/discogsSearch";
 // import youtubeSearch from "./api/youtubeSearch";
 
 function App() {
   const [episodeData, setEpisodeData] = useState({});
+  const [episode, setEpisode] = useState("");
 
   useEffect(() => {
-    saveEpisode(episodeData);
-  }, [episodeData]);
+    if (episode) {
+      fetchEpisode(episode).then((data) => {
+        setEpisodeData(data);
+      });
+    }
+  }, [episode]);
 
   return (
     <div>
-      <Header setEpisodeData={setEpisodeData} />
+      <Header setEpisode={setEpisode} />
       <div id="main-card">
         <Landing episodeData={episodeData} />
         <img
