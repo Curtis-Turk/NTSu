@@ -1,5 +1,5 @@
 const saveEpisode = ({ episodeTitle, episodeImage, allTracks }) => {
-  fetch("http://localhost:3001/episodes", {
+  fetch("http://localhost:3001/episode", {
     method: "POST",
     body: JSON.stringify({
       episodeTitle: episodeTitle,

@@ -1,39 +1,24 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import ntsScraper from "./api/ntsScraper";
 import Header from "./components/Header";
 import Tracklist from "./components/Tracklist";
 import Landing from "./components/Landing";
+import saveEpisode from "./api/saveEpisode";
 // import discogsSearch from "./api/discogsSearch";
 // import youtubeSearch from "./api/youtubeSearch";
 
 function App() {
-  const [episode, setEpisode] = useState("");
   const [episodeData, setEpisodeData] = useState({});
 
   useEffect(() => {
-    if (episode) {
-      let fetchNts = async () => {
-        const ntsData = await ntsScraper(episode);
-        setEpisodeData(ntsData);
-      };
-      fetchNts();
-    }
-  }, [episode]);
-
-  useEffect(() => {
-    if (Object.keys(episodeData).length) {
-      // console.log(episodeData);
-      // youtubeSearch(episodeData.allTracks[9]);
-      // console.log(discogsSearch(episodeData.allTracks[9]));
-    }
+    saveEpisode(episodeData);
   }, [episodeData]);
 
   return (
     <div>
-      <Header setEpisode={setEpisode} />
+      <Header setEpisodeData={setEpisodeData} />
       <div id="main-card">
-        <Landing episode={episode} />
+        <Landing episodeData={episodeData} />
         <img
           className="episode-image"
           src={episodeData.episodeImage}

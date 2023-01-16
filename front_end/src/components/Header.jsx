@@ -1,7 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import ntsScraper from "../api/ntsScraper";
 
-function Header({ setEpisode }) {
+function Header({ setEpisodeData }) {
   const [textInput, setTextInput] = useState("");
+  const [episode, setEpisode] = useState("");
+  const [data, setData] = useState("");
+
+  useEffect(() => {
+    if (episode) {
+      let fetchNts = async () => {
+        const ntsData = await ntsScraper(episode);
+        setData(ntsData);
+      };
+      fetchNts();
+    }
+  }, [episode]);
 
   const onChange = (e) => {
     setTextInput(e.target.value);
@@ -9,6 +22,10 @@ function Header({ setEpisode }) {
 
   const onSubmit = () => {
     setEpisode(textInput);
+    if (data) {
+      setEpisodeData(data);
+    }
+
     setTextInput("");
   };
 
@@ -16,6 +33,10 @@ function Header({ setEpisode }) {
     setEpisode(
       "https://www.nts.live/shows/canyoufeelthesun-w-call-super-parris/episodes/can-you-feel-the-sun-5th-january-2023"
     );
+    if (data) {
+      setEpisodeData(data);
+    }
+    setTextInput("");
   };
 
   // if (episode.match(/nts\.live\/shows.*/g)) {

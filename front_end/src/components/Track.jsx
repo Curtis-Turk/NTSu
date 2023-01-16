@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+// useEffect,
 import bandcampSearch from "../api/bandcampSearch";
 import bandcampIcon from "../images/bandcampIcon.png";
 import discogsSearch from "../api/discogsSearch";

@@ -31,7 +31,7 @@ const app = express();
 app.use(cors());
 app.use(json());
 
-app.use("/episodes", episodesRoute);
+app.use("/episode", episodesRoute);
 
 app.get("/", (req, res) => {
   res.json({ message: "welcome" });
