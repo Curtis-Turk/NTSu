@@ -10,6 +10,15 @@ const trackSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	bandcampUrl: {
+		type: String,
+	},
+	youtubeUrl: {
+		type: String,
+	},
+	discogsUrl: {
+		type: String,
+	},
 });
 
 const Track = mongoose.model('Track', trackSchema);

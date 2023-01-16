@@ -21,23 +21,33 @@ const Track = ({ track }) => {
   //   youtubeTrackInfo,
   // ]);
 
-  const getLinks = () => {
-    if (!bandcampTrackInfo) {
-      bandcampSearch(track).then((data) => {
-        setBandcampTrackInfo(data.trackurl);
-      });
-    }
-    if (!discogsTrackInfo) {
-      discogsSearch(track).then((data) => {
-        setDiscogsTrackInfo(data.trackurl);
-      });
-    }
-    if (!youtubeTrackInfo) {
-      youtubeSearch(track).then((data) => {
-        setYoutubeTrackInfo(data.trackurl);
-      });
-    }
-  };
+
+  // const getLinks = () => {
+
+  // get stuff from db, set 
+
+  //   if (!bandcampTrackInfo) {
+  //     bandcampSearch(track).then((data) => {
+  //       setBandcampTrackInfo(data.trackurl);
+  //     });
+  //   }
+  //   if (!discogsTrackInfo) {
+  //     discogsSearch(track).then((data) => {
+  //       setDiscogsTrackInfo(data.trackurl);
+  //     });
+  //   }
+  //   if (!youtubeTrackInfo) {
+  //     youtubeSearch(track).then((data) => {
+  //       setYoutubeTrackInfo(data.trackurl);
+  //     });
+  //   }
+  // };
+
+  // fetchTrack(track).then(({bandcamp,discogs,youtube}) => {
+  //   setBandcampTrackInfo(bandcamp)
+  //   setDiscogsTrackInfo(discogs)
+  //   setYoutubeTrackInfo(youtube)
+  // })
 
   return (
     <li>
