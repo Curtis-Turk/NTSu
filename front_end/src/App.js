@@ -14,6 +14,7 @@ function App() {
   useEffect(() => {
     if (episode) {
       fetchEpisode(episode).then((data) => {
+        console.log(data);
         setEpisodeData(data);
       });
     }

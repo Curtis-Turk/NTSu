@@ -7,6 +7,7 @@ import discogIcon from "../images/discogsIcon.png";
 import youtubeSearch from "../api/youtubeSearch";
 import youtubeIcon from "../images/youtubeIcon.png";
 import Link from "./Link";
+import fetchTrack from "../api/fetchTrack";
 
 const Track = ({ track }) => {
   const [bandcampTrackInfo, setBandcampTrackInfo] = useState(null);
@@ -45,7 +46,7 @@ const Track = ({ track }) => {
         <div className="track_title">{track.title}</div>
       </div>
       <div className="site_links">
-        <div className="get_details" onClick={getLinks}>
+        <div className="get_details" onClick={fetchTrack}>
           &gt;
         </div>
         <Link

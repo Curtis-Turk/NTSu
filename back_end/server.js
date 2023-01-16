@@ -15,6 +15,8 @@ mongoose.set("strictQuery", false);
 import episodesRoute from "./routes/episodesRoute.js";
 import episodeSchema from "./models/Episode.js";
 
+import trackRoute from "./routes/trackRoute.js";
+
 mongoose.connect("mongodb://localhost/ntsu", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -32,6 +34,7 @@ app.use(cors());
 app.use(json());
 
 app.use("/episode", episodesRoute);
+app.use("/track", trackRoute);
 
 app.get("/", (req, res) => {
   res.json({ message: "welcome" });

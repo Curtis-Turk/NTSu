@@ -14,7 +14,6 @@ async function ntsScraper(episode) {
     let track = { title: null, artist: null };
     track.title = $(e).children(".track__title").text();
     track.artist = $(e).children(".track__artist").first().text();
-    // console.log(track);
     allTracks.push(track);
   });
   episodeImage = $(".background-image").first().attr("style").slice(21, -1);
