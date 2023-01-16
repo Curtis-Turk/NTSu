@@ -24,9 +24,11 @@ function Header({ setEpisode }) {
   };
 
   const deleteEpisode = () => {
-    fetch("http://localhost:3001/episode", {
+    fetch("http://localhost:3001/episode/devepisode", {
+      method: "DELETE",
       headers: { "Content-Type": "application/json" },
     });
+    setEpisode("")
   };
 
   return (
