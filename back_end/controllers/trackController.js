@@ -14,26 +14,13 @@ const trackController = {
         } else if (existingTrack) {
           console.log("track exists");
           const trackLinks = await getTrackLinks(req.body);
-
-          console.log(trackLinks);
-          console.log("before", existingTrack);
-          existingTrack.bandcampUrl = trackLinks.trackurl;
-          console.log("after", existingTrack);
+          existingTrack.bandcampUrl = trackLinks.bandcampUrl.trackurl;
+          existingTrack.discogsUrl = trackLinks.discogsUrl.trackurl;
+          existingTrack.youtubeUrl = trackLinks.discogsUrl.trackurl;
           await existingTrack.save();
-          // // Track.updateOne(existingTrack)
-          // console.log(bandcampUrl);s
           res.send(existingTrack);
         } else {
-          console.log("Creating track");
-          // console.log(trackTitle);
-          // const { bandcampUrl } = await getTrackLinks(req.body);
-          // const newTrack = new Track({
-          //   artist: trackArtist,
-          //   title: trackTitle,
-          //   bandcampUrl: bandcampUrl,
-          // });
-          // await newTrack.save();
-          // res.send(newTrack);
+          console.log("Still need to create track?");
         }
       }
     );
@@ -41,23 +28,4 @@ const trackController = {
   },
 };
 
-// (req, res) => {
-//   const { episodeUrl } = req.body;
-//   Episode.findOne(
-//     { episodeUrl: episodeUrl },
-//     async (err, existingEpisode) => {
-//       if (err) {
-//         res.status(500).send(err);
-//       } else if (existingEpisode) {
-//         res.send(existingEpisode);
-//       } else {
-//         const ntsData = await ntsScraper(episodeUrl);
-//         ntsData.allTracks = saveTracks(ntsData.allTracks);
-//         const newEpisode = new Episode(ntsData);
-//         await newEpisode.save();
-//         res.send(newEpisode);
-//       }
-//     }
-//   );
-// },
 export default trackController;

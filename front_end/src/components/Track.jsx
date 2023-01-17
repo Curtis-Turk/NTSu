@@ -21,10 +21,12 @@ const Track = ({ track }) => {
   //   youtubeTrackInfo,
   // ]);
 
-  const getLinks = () => {
-    fetchTrack(track);
+  const getLinks = async () => {
+    const { youtubeUrl, discogsUrl, bandcampUrl } = await fetchTrack(track);
 
-    // get stuff from db, set
+    setBandcampTrackInfo(bandcampUrl);
+    setDiscogsTrackInfo(youtubeUrl);
+    setYoutubeTrackInfo(youtubeUrl);
 
     //   if (!bandcampTrackInfo) {
     //     bandcampSearch(track).then((data) => {

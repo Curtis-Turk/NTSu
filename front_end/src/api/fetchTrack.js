@@ -7,7 +7,7 @@ const fetchTrack = async (track) => {
     method: "POST",
     body: JSON.stringify(track),
     headers: { "Content-Type": "application/json" },
-  }).then((response) => console.log(response.json()));
+  }).then((response) => response.json());
 };
 
 export default fetchTrack;
