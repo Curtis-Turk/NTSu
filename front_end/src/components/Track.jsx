@@ -21,27 +21,27 @@ const Track = ({ track }) => {
   //   youtubeTrackInfo,
   // ]);
 
+  const getLinks = () => {
+    fetchTrack(track);
 
-  // const getLinks = () => {
+    // get stuff from db, set
 
-  // get stuff from db, set 
-
-  //   if (!bandcampTrackInfo) {
-  //     bandcampSearch(track).then((data) => {
-  //       setBandcampTrackInfo(data.trackurl);
-  //     });
-  //   }
-  //   if (!discogsTrackInfo) {
-  //     discogsSearch(track).then((data) => {
-  //       setDiscogsTrackInfo(data.trackurl);
-  //     });
-  //   }
-  //   if (!youtubeTrackInfo) {
-  //     youtubeSearch(track).then((data) => {
-  //       setYoutubeTrackInfo(data.trackurl);
-  //     });
-  //   }
-  // };
+    //   if (!bandcampTrackInfo) {
+    //     bandcampSearch(track).then((data) => {
+    //       setBandcampTrackInfo(data.trackurl);
+    //     });
+    //   }
+    //   if (!discogsTrackInfo) {
+    //     discogsSearch(track).then((data) => {
+    //       setDiscogsTrackInfo(data.trackurl);
+    //     });
+    //   }
+    //   if (!youtubeTrackInfo) {
+    //     youtubeSearch(track).then((data) => {
+    //       setYoutubeTrackInfo(data.trackurl);
+    //     });
+    //   }
+  };
 
   // fetchTrack(track).then(({bandcamp,discogs,youtube}) => {
   //   setBandcampTrackInfo(bandcamp)
@@ -56,7 +56,7 @@ const Track = ({ track }) => {
         <div className="track_title">{track.title}</div>
       </div>
       <div className="site_links">
-        <div className="get_details" onClick={fetchTrack}>
+        <div className="get_details" onClick={getLinks}>
           &gt;
         </div>
         <Link

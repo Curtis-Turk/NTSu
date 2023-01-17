@@ -1,6 +1,10 @@
-const getTrackLinks = async (track) => {
-	const searchTitle = track.title.split(' ').join('+');
-	const searchArtist = track.artist.split(' ').join('+');
+import bandcampSearch from "./bandcampSearch.js";
 
-	return await bandcampSearch({ searchTitle, searchArtist });
+const getTrackLinks = async ({ artist, title }) => {
+  const searchTitle = title.split(" ").join("+");
+  const searchArtist = artist.split(" ").join("+");
+
+  return await bandcampSearch({ searchTitle, searchArtist });
 };
+
+export default getTrackLinks;
