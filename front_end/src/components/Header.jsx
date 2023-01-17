@@ -7,13 +7,12 @@ function Header({ setEpisode }) {
     setTextInput(e.target.value);
   };
 
-  // const onSubmit = () => {
-  //   if (textInput.match(/nts\.live\/shows.*/g)) {
-  //     console.log(textInput);
-  //     // setEpisode(textInput);
-  //     setTextInput("");
-  //   }
-  // };
+  const onSubmit = () => {
+    if (textInput.match(/nts\.live\/shows.*/g)) {
+      setEpisode(textInput);
+      setTextInput("");
+    }
+  };
 
   const devEpisode = () => {
     setEpisode(
@@ -28,21 +27,28 @@ function Header({ setEpisode }) {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     });
-    setEpisode("")
+    setEpisode("");
+  };
+
+  const login = () => {
+    setEpisode("login");
   };
 
   return (
     <div className="header">
       <h1 onClick={() => window.location.reload(false)}>NTSu</h1>
       <input type="text" onChange={onChange} value={textInput} />
-      {/* <button onClick={() => onSubmit()} type="button">
+      <button onClick={() => onSubmit()} type="button">
         🔍
-      </button> */}
+      </button>
       <button onClick={() => devEpisode()} type="button">
         Dev-btn🔍
       </button>
       <button onClick={() => deleteEpisode()} type="button">
         delete
+      </button>
+      <button onClick={() => login()} type="button">
+        login
       </button>
     </div>
   );

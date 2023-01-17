@@ -1,5 +1,7 @@
-import React from "react";
-
 export default function Landing({ episodeData }) {
-  if (!episodeData) return <h2>Enter a NTS episode to view tracks</h2>;
+  if (Object.keys(episodeData).length === 0) {
+    return <h2>Enter a NTS episode to view tracks</h2>;
+  } else if (episodeData.login) {
+    return <h2>Login or Signup</h2>;
+  }
 }

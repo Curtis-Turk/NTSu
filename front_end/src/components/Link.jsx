@@ -1,5 +1,3 @@
-import React from "react";
-
 function Link({ className, trackInfo, icon }) {
   return (
     <div className={className}>

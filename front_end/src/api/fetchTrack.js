@@ -1,7 +1,3 @@
-// send the track to the backend
-// backend checks for db, and if not, scrapes
-// backend sends back track data
-
 const fetchTrack = async (track) => {
   return fetch("http://localhost:3001/track", {
     method: "POST",
