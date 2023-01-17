@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// useEffect,
 import bandcampIcon from "../images/bandcampIcon.png";
 import discogIcon from "../images/discogsIcon.png";
 import youtubeIcon from "../images/youtubeIcon.png";
@@ -7,23 +6,16 @@ import Link from "./Link";
 import fetchTrack from "../api/fetchTrack";
 
 const Track = ({ track }) => {
-  const [bandcampTrackInfo, setBandcampTrackInfo] = useState(null);
-  const [discogsTrackInfo, setDiscogsTrackInfo] = useState(null);
-  const [youtubeTrackInfo, setYoutubeTrackInfo] = useState(null);
-
-  // useEffect(() => {}, [
-  //   track,
-  //   bandcampTrackInfo,
-  //   discogsTrackInfo,
-  //   youtubeTrackInfo,
-  // ]);
+  const [bandcampTrackUrl, setBandcampTrackUrl] = useState(track.bandcampUrl);
+  const [discogsTrackUrl, setDiscogsTrackUrl] = useState(track.discogsUrl);
+  const [youtubeTrackUrl, setYoutubeTrackUrl] = useState(track.youtubeUrl);
 
   const getLinks = async () => {
     const { youtubeUrl, discogsUrl, bandcampUrl } = await fetchTrack(track);
 
-    setBandcampTrackInfo(bandcampUrl);
-    setDiscogsTrackInfo(discogsUrl);
-    setYoutubeTrackInfo(youtubeUrl);
+    setBandcampTrackUrl(bandcampUrl);
+    setDiscogsTrackUrl(discogsUrl);
+    setYoutubeTrackUrl(youtubeUrl);
   };
 
   return (
@@ -38,17 +30,17 @@ const Track = ({ track }) => {
         </div>
         <Link
           className={"bandcamp"}
-          trackInfo={bandcampTrackInfo}
+          trackInfo={bandcampTrackUrl}
           icon={bandcampIcon}
         />
         <Link
           className={"discogs"}
-          trackInfo={discogsTrackInfo}
+          trackInfo={discogsTrackUrl}
           icon={discogIcon}
         />
         <Link
           className={"youtube"}
-          trackInfo={youtubeTrackInfo}
+          trackInfo={youtubeTrackUrl}
           icon={youtubeIcon}
         />
       </div>
