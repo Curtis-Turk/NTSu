@@ -4,16 +4,18 @@ function Signup({ episodeData }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signupUser = async () => {
+  const signupUser = async (e) => {
+    e.preventDefault();
     console.log("Attempting to fetch login");
     const response = await fetch("http://localhost:3001/user/signup", {
       method: "POST",
-      body: { email, password },
+      body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
     }).then((response) => response.json());
     // Handle successful login here
     console.log(response);
   };
+
   if (episodeData.login) {
     return (
       <form onSubmit={signupUser}>

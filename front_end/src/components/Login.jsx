@@ -4,11 +4,12 @@ function Login({ episodeData }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const loginUser = async () => {
+  const loginUser = async (e) => {
+    e.preventDefault();
     console.log("Attempting to fetch login");
     const response = await fetch("http://localhost:3001/user/login", {
       method: "POST",
-      body: { email, password },
+      body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
     }).then((response) => response.json());
     // Handle successful login here

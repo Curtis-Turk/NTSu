@@ -1,12 +1,11 @@
 import bcrypt from "bcrypt";
-import pkg from "jsonwebtoken";
-const { jwt } = pkg;
+import jwt from "jsonwebtoken";
 
 import User from "../models/User.js";
 
 const userController = {
   Signup: (req, res) => {
-    console.log(req.body);
+    console.log("signin up", req.body);
 
     const { email, password } = req.body;
 
@@ -45,7 +44,7 @@ const userController = {
       });
   },
   Login: (req, res) => {
-    console.log(req.body);
+    console.log("loggin in", req.body);
 
     const { email, password } = req.body;
 
@@ -64,6 +63,7 @@ const userController = {
 
           if (result) {
             // Create JWT
+
             const token = jwt.sign(
               { email, userId: user._id },
               process.env.JWT_KEY,
