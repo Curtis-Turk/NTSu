@@ -14,6 +14,7 @@ mongoose.set("strictQuery", false);
 
 import episodeRouter from "./routes/episodeRouter.js";
 import trackRouter from "./routes/trackRouter.js";
+import userRouter from "./routes/userRouter.js";
 
 mongoose.connect("mongodb://localhost/ntsu", {
   useNewUrlParser: true,
@@ -33,6 +34,7 @@ app.use(json());
 
 app.use("/episode", episodeRouter);
 app.use("/track", trackRouter);
+app.use("/user", userRouter);
 
 app.get("/", (req, res) => {
   res.json({ message: "welcome" });

@@ -3,6 +3,6 @@ import trackController from "../controllers/trackController.js";
 
 const router = express.Router();
 
-router.post("/", trackController.Create);
+router.post("/", trackController.Fetch);
 
 export default router;
