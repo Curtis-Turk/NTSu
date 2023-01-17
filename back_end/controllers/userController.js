@@ -6,6 +6,8 @@ import User from "../models/User.js";
 
 const userController = {
   Signup: (req, res) => {
+    console.log(req.body);
+
     const { email, password } = req.body;
 
     // Check if user already exists
@@ -43,6 +45,8 @@ const userController = {
       });
   },
   Login: (req, res) => {
+    console.log(req.body);
+
     const { email, password } = req.body;
 
     // Find user by email
