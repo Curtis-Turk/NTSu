@@ -13,12 +13,12 @@ const discogsSearch = async ({ searchTitle, searchArtist }) => {
       // console.log(data);
       if (data.results) {
         if (data.results[0]) {
-          return { trackurl: `https://www.discogs.com${data.results[0].uri}` };
+          return `https://www.discogs.com${data.results[0].uri}`;
         }
-        return { trackurl: "" };
+        return "";
       }
       console.log("No RESULTS");
-      return { trackurl: "" };
+      return "";
     });
 };
 

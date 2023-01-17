@@ -13,7 +13,7 @@ const bandcampSearch = async ({ searchTitle, searchArtist }) => {
       // console.log(artist, title);
       // console.log(fetchArtist, fetchTitle);
       let trackurl = $(".itemurl").first().text().split("\n").join("").trim();
-      return { trackurl: trackurl };
+      return trackurl;
     });
 };
 

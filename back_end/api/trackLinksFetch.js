@@ -2,19 +2,20 @@ import bandcampSearch from "./bandcampSearch.js";
 import discogsSearch from "./discogsFetch.js";
 import youtubeSearch from "./youtubeFetch.js";
 
-const getTrackLinks = async ({ artist, title }) => {
-  const searchTitle = title.split(" ").join("+");
-  const searchArtist = artist.split(" ").join("+");
+const getTrackLinks = async (track) => {
+  const searchTitle = track.title.split(" ").join("+");
+  const searchArtist = track.artist.split(" ").join("+");
 
-  const bandcampUrl = await bandcampSearch({ searchTitle, searchArtist });
-  const discogsUrl = await discogsSearch({ searchTitle, searchArtist });
-  const youtubeUrl = await youtubeSearch({ searchTitle, searchArtist });
-  const trackLinks = {
-    bandcampUrl: bandcampUrl,
-    discogsUrl: discogsUrl,
-    youtubeUrl: youtubeUrl,
-  };
-  return trackLinks;
+  if (!track.bandcampUrl)
+    track.bandcampUrl = await bandcampSearch({ searchTitle, searchArtist });
+
+  if (!track.discogsUrl)
+    track.discogsUrl = await discogsSearch({ searchTitle, searchArtist });
+
+  if (!track.youtubeUrl)
+    track.youtubeUrl = await youtubeSearch({ searchTitle, searchArtist });
+
+  return track;
 };
 
 export default getTrackLinks;

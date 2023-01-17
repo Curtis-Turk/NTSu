@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 // useEffect,
-import bandcampSearch from "../api/bandcampSearch";
 import bandcampIcon from "../images/bandcampIcon.png";
-import discogsSearch from "../api/discogsSearch";
 import discogIcon from "../images/discogsIcon.png";
-import youtubeSearch from "../api/youtubeSearch";
 import youtubeIcon from "../images/youtubeIcon.png";
 import Link from "./Link";
 import fetchTrack from "../api/fetchTrack";
@@ -25,31 +22,9 @@ const Track = ({ track }) => {
     const { youtubeUrl, discogsUrl, bandcampUrl } = await fetchTrack(track);
 
     setBandcampTrackInfo(bandcampUrl);
-    setDiscogsTrackInfo(youtubeUrl);
+    setDiscogsTrackInfo(discogsUrl);
     setYoutubeTrackInfo(youtubeUrl);
-
-    //   if (!bandcampTrackInfo) {
-    //     bandcampSearch(track).then((data) => {
-    //       setBandcampTrackInfo(data.trackurl);
-    //     });
-    //   }
-    //   if (!discogsTrackInfo) {
-    //     discogsSearch(track).then((data) => {
-    //       setDiscogsTrackInfo(data.trackurl);
-    //     });
-    //   }
-    //   if (!youtubeTrackInfo) {
-    //     youtubeSearch(track).then((data) => {
-    //       setYoutubeTrackInfo(data.trackurl);
-    //     });
-    //   }
   };
-
-  // fetchTrack(track).then(({bandcamp,discogs,youtube}) => {
-  //   setBandcampTrackInfo(bandcamp)
-  //   setDiscogsTrackInfo(discogs)
-  //   setYoutubeTrackInfo(youtube)
-  // })
 
   return (
     <li>

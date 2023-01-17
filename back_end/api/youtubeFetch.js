@@ -11,9 +11,7 @@ const youtubeSearch = async ({ searchTitle, searchArtist }) => {
     .then((data) => {
       // console.log(data);
       if (data.items) {
-        return {
-          trackurl: `https://www.youtube.com/watch?v=${data.items[0].id.videoId}`,
-        };
+        return `https://www.youtube.com/watch?v=${data.items[0].id.videoId}`;
       }
     });
 };
