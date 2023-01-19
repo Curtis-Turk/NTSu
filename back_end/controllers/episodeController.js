@@ -1,7 +1,7 @@
 import Episode from "../models/Episode.js";
 import Track from "../models/Track.js";
 import ntsScraper from "../api/ntsScraper.js";
-import saveTracks from "../utils/saveTracks.js";
+import storeEpisodeTracks from "../utils/storeEpisodeTracks.js";
 
 const episodeController = {
   Create: (req, res) => {
@@ -15,7 +15,7 @@ const episodeController = {
           res.send(existingEpisode);
         } else {
           const ntsData = await ntsScraper(episodeUrl);
-          ntsData.allTracks = saveTracks(ntsData.allTracks);
+          ntsData.allTracks = storeEpisodeTracks(ntsData.allTracks);
           const newEpisode = new Episode(ntsData);
           await newEpisode.save();
           res.send(newEpisode);

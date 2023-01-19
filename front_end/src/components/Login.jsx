@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Login({ setUser, setLoggedIn, episodeData }) {
+function Login({ setUser, setIsLoggedIn, episodeData }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,6 +14,10 @@ function Login({ setUser, setLoggedIn, episodeData }) {
     }).then((response) => response.json());
     // Handle successful login here
     console.log(response);
+    if (response.message === "Auth successful") {
+      setUser({ username: email, token: response.token });
+      setIsLoggedIn(true);
+    }
   };
 
   return (

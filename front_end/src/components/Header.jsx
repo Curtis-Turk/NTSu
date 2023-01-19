@@ -1,6 +1,12 @@
 import { useState } from "react";
 
-function Header({ isLoggedIn, setIsLoggedIn, setCurrentPage, setEpisode }) {
+function Header({
+  user,
+  isLoggedIn,
+  setIsLoggedIn,
+  setCurrentPage,
+  setEpisode,
+}) {
   const [textInput, setTextInput] = useState("");
 
   const onChange = (e) => {
@@ -35,18 +41,23 @@ function Header({ isLoggedIn, setIsLoggedIn, setCurrentPage, setEpisode }) {
   return (
     <div className="header">
       <h1 onClick={() => setCurrentPage("")}>NTSu</h1>
-      <input type="text" onChange={onChange} value={textInput} />
-      <button onClick={() => onSubmit()} type="button">
-        🔍
-      </button>
+      <div className="search">
+        <input type="text" onChange={onChange} value={textInput} />
+        <button onClick={() => onSubmit()} type="button">
+          🔍
+        </button>
+      </div>
       <button onClick={() => devEpisode()} type="button">
-        Dev-btn🔍
+        Dev🔍
       </button>
       <button onClick={() => deleteEpisode()} type="button">
         delete
       </button>
       {isLoggedIn ? (
-        <button onClick={() => setIsLoggedIn(false)}>Logout</button>
+        <>
+          <button onClick={() => setIsLoggedIn(false)}>Logout</button>
+          <button onClick={() => setCurrentPage("user")}>👤</button>
+        </>
       ) : (
         <button onClick={() => setCurrentPage("login")} type="button">
           login

@@ -36,6 +36,7 @@ function App() {
         setCurrentPage={setCurrentPage}
         setIsLoggedIn={setIsLoggedIn}
         setEpisode={setEpisode}
+        user={user}
       />
 
       <Landing currentPage={currentPage} />
