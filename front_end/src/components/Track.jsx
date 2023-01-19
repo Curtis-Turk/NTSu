@@ -4,8 +4,9 @@ import discogIcon from "../images/discogsIcon.png";
 import youtubeIcon from "../images/youtubeIcon.png";
 import SiteLink from "./SiteLink";
 import fetchTrack from "../api/fetchTrack";
+import saveTrack from "../api/saveTrack";
 
-const Track = ({ track }) => {
+const Track = ({ track, user }) => {
   const [bandcampTrackUrl, setBandcampTrackUrl] = useState(track.bandcampUrl);
   const [discogsTrackUrl, setDiscogsTrackUrl] = useState(track.discogsUrl);
   const [youtubeTrackUrl, setYoutubeTrackUrl] = useState(track.youtubeUrl);
@@ -18,6 +19,9 @@ const Track = ({ track }) => {
     setYoutubeTrackUrl(youtubeUrl);
   };
 
+  const clickSaveTrack = () => {
+    saveTrack(track, user).then((data) => console.log(data));
+  };
   return (
     <li>
       <div className="track_details">
@@ -25,7 +29,7 @@ const Track = ({ track }) => {
         <div className="track_title">{track.title}</div>
       </div>
       <div className="track_options">
-        <div className="get_details" onClick={getLinks}>
+        <div className="get_details" onClick={clickSaveTrack}>
           +
         </div>
         <div className="get_details" onClick={getLinks}>

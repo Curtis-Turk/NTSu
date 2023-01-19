@@ -49,7 +49,7 @@ function App() {
             alt=""
           ></img>
           <h2>{episodeData.episodeTitle}</h2>{" "}
-          <Tracklist tracks={episodeData.allTracks} />
+          <Tracklist tracks={episodeData.allTracks} user={user} />
         </div>
       ) : null}
 

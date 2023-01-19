@@ -1,8 +1,8 @@
 import Track from "./Track";
 
-function Tracklist({ tracks }) {
-  const listTracks = tracks?.map((track) => (
-    <Track key={track.title} track={track} />
+function Tracklist({ tracks, user }) {
+  const listTracks = tracks?.map((track, i) => (
+    <Track key={i} track={track} user={user} />
   ));
   if (listTracks) return <ul>{listTracks}</ul>;
 }

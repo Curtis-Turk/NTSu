@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Login({ setUser, setIsLoggedIn, episodeData }) {
+function Login({ setUser, setIsLoggedIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
