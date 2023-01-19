@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import bandcampIcon from "../images/bandcampIcon.png";
 import discogIcon from "../images/discogsIcon.png";
 import youtubeIcon from "../images/youtubeIcon.png";
-import Link from "./Link";
+import SiteLink from "./SiteLink";
 import fetchTrack from "../api/fetchTrack";
 
 const Track = ({ track }) => {
@@ -28,17 +28,17 @@ const Track = ({ track }) => {
         <div className="get_details" onClick={getLinks}>
           &gt;
         </div>
-        <Link
+        <SiteLink
           className={"bandcamp"}
           trackInfo={bandcampTrackUrl}
           icon={bandcampIcon}
         />
-        <Link
+        <SiteLink
           className={"discogs"}
           trackInfo={discogsTrackUrl}
           icon={discogIcon}
         />
-        <Link
+        <SiteLink
           className={"youtube"}
           trackInfo={youtubeTrackUrl}
           icon={youtubeIcon}

@@ -1,12 +1,14 @@
 import "./App.css";
 import { useEffect, useState } from "react";
+
 import Header from "./components/Header";
 import Tracklist from "./components/Tracklist";
 import Landing from "./components/Landing";
-import fetchEpisode from "./api/fetchEpisode";
-import populateEpisode from "./api/populateEpisode";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+
+import fetchEpisode from "./api/fetchEpisode";
+import populateEpisode from "./api/populateEpisode";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("");
@@ -50,18 +52,20 @@ function App() {
         </div>
       ) : null}
 
-      <div id="login">
-        <Login
-          setIsLoggedIn={setIsLoggedIn}
-          setUser={setUser}
-          episodeData={episodeData}
-        />
-        <Signup
-          setIsLoggedIn={setIsLoggedIn}
-          setUser={setUser}
-          episodeData={episodeData}
-        />
-      </div>
+      {currentPage === "login" ? (
+        <div id="login">
+          <Login
+            setIsLoggedIn={setIsLoggedIn}
+            setUser={setUser}
+            episodeData={episodeData}
+          />
+          <Signup
+            setIsLoggedIn={setIsLoggedIn}
+            setUser={setUser}
+            episodeData={episodeData}
+          />
+        </div>
+      ) : null}
     </div>
   );
 }

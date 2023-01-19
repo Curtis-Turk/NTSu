@@ -16,29 +16,27 @@ function Login({ setUser, setLoggedIn, episodeData }) {
     console.log(response);
   };
 
-  if (episodeData.login) {
-    return (
-      <form onSubmit={loginUser}>
-        <h3>Login</h3>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+  return (
+    <form onSubmit={loginUser}>
+      <h3>Login</h3>
+      <label htmlFor="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
 
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+      <label htmlFor="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
 
-        <button type="submit">Login</button>
-      </form>
-    );
-  }
+      <button type="submit">Login</button>
+    </form>
+  );
 }
 export default Login;

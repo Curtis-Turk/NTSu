@@ -11,33 +11,31 @@ function Signup({ setUser, setLoggedIn, episodeData }) {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
-    }).then((response) => response.json());
-    // Handle successful login here
-    console.log(response);
+    }).then((response) => {
+      return response.json();
+    });
   };
 
-  if (episodeData.login) {
-    return (
-      <form onSubmit={signupUser}>
-        <h3>Signup</h3>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Signup</button>
-      </form>
-    );
-  }
+  return (
+    <form onSubmit={signupUser}>
+      <h3>Signup</h3>
+      <label htmlFor="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <label htmlFor="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button type="submit">Signup</button>
+    </form>
+  );
 }
 
 export default Signup;

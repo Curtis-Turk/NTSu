@@ -1,4 +1,4 @@
-function Link({ className, trackInfo, icon }) {
+function SiteLink({ className, trackInfo, icon }) {
   return (
     <div className={className}>
       {trackInfo ? (
@@ -17,4 +17,4 @@ function Link({ className, trackInfo, icon }) {
   );
 }
 
-export default Link;
+export default SiteLink;
