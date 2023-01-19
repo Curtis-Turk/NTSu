@@ -32,13 +32,9 @@ function Header({ isLoggedIn, setIsLoggedIn, setCurrentPage, setEpisode }) {
     setEpisode("");
   };
 
-  const login = () => {
-    setEpisode("login");
-  };
-
   return (
     <div className="header">
-      <h1 onClick={() => window.location.reload(false)}>NTSu</h1>
+      <h1 onClick={() => setCurrentPage("")}>NTSu</h1>
       <input type="text" onChange={onChange} value={textInput} />
       <button onClick={() => onSubmit()} type="button">
         🔍
@@ -52,7 +48,7 @@ function Header({ isLoggedIn, setIsLoggedIn, setCurrentPage, setEpisode }) {
       {isLoggedIn ? (
         <button onClick={() => setIsLoggedIn(false)}>Logout</button>
       ) : (
-        <button onClick={() => login()} type="button">
+        <button onClick={() => setCurrentPage("login")} type="button">
           login
         </button>
       )}

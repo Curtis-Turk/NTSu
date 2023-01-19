@@ -36,18 +36,20 @@ function App() {
         setEpisode={setEpisode}
       />
 
-      <div id="main-card">
-        <Landing currentPage={currentPage} />
-        <img
-          className="episode-image"
-          src={episodeData.episodeImage}
-          alt=""
-        ></img>
-        {Object.keys(episodeData).length > 1 ? (
-          <h2>{episodeData.episodeTitle}</h2>
-        ) : null}
-        <Tracklist tracks={episodeData.allTracks} />
-      </div>
+      <Landing currentPage={currentPage} />
+
+      {currentPage === "episode" ? (
+        <div id="episode">
+          <img
+            className="episode-image"
+            src={episodeData.episodeImage}
+            alt=""
+          ></img>
+          <h2>{episodeData.episodeTitle}</h2>{" "}
+          <Tracklist tracks={episodeData.allTracks} />
+        </div>
+      ) : null}
+
       <div id="login">
         <Login
           setIsLoggedIn={setIsLoggedIn}
