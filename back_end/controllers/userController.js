@@ -81,40 +81,16 @@ const userController = {
         res.status(500).json({ error });
       });
   },
-  UserTracks: (req, res) => {
+  UserTracks: async (req, res) => {
     console.log("getting here");
     const { username } = req.body;
-    console.log(req.body);
-    User.findOne(
-      { username }.then((user) => {
-        if (err) {
-          res.status(500).send(err);
-        } else {
-          console.log(user);
-          // const userTracks = await Track.find({ _id: { $in: user.addedTracks } });
-          // res.send(userTracks);
-        }
-      })
-    );
+    console.log("usrname", username);
+    User.findOne({ email: username }).then(async (user) => {
+      const userTracks = await Track.find({ _id: { $in: user.addedTracks } });
+      res.send(userTracks);
+    });
   },
 };
-
-// UserTracks: (req, res) => {
-//   console.log("getting here");
-//   const { email } = req.body;
-//   User.findOne({ email }, async (err, user) => {
-//     if (err) {
-//       res.status(500).send(err);
-//     } else res.send(user.addedTracks);
-//   });
-// },
-
-// PopulateTracks: async (req, res) => {
-//   const trackIds = req.body.userTracks;
-//   const userTracks = await Track.find({ _id: { $in: trackIds } });
-//   // await episodePop.populate({ path: "allTracks" });
-//   res.send(userTracks);
-// },
 
 // import crypto from "crypto";
 // const JWT_KEY = crypto.randomBytes(64).toString("hex");

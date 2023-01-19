@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import fetchUserTracks from "../api/fetchUserTracks";
+import Tracklist from "./Tracklist";
 
 function UserTracks({ user, currentPage }) {
   console.log(user);
-  const [userTracks, setUserTracks] = useState("");
+  const [userTracks, setUserTracks] = useState([]);
 
   useEffect(() => {
     if (currentPage === "user")
@@ -14,7 +15,7 @@ function UserTracks({ user, currentPage }) {
       });
   }, [currentPage, user]);
 
-  return <div>{userTracks}</div>;
+  return <Tracklist tracks={userTracks} user={user} />;
 }
 
 export default UserTracks;
