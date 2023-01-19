@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Header({ setEpisode }) {
+function Header({ isLoggedIn, setIsLoggedIn, setCurrentPage, setEpisode }) {
   const [textInput, setTextInput] = useState("");
 
   const onChange = (e) => {
@@ -11,6 +11,7 @@ function Header({ setEpisode }) {
     if (textInput.match(/nts\.live\/shows.*/g)) {
       setEpisode(textInput);
       setTextInput("");
+      setCurrentPage("episode");
     }
   };
 
@@ -20,6 +21,7 @@ function Header({ setEpisode }) {
     );
 
     setTextInput("");
+    setCurrentPage("episode");
   };
 
   const deleteEpisode = () => {
@@ -47,9 +49,13 @@ function Header({ setEpisode }) {
       <button onClick={() => deleteEpisode()} type="button">
         delete
       </button>
-      <button onClick={() => login()} type="button">
-        login
-      </button>
+      {isLoggedIn ? (
+        <button onClick={() => setIsLoggedIn(false)}>Logout</button>
+      ) : (
+        <button onClick={() => login()} type="button">
+          login
+        </button>
+      )}
     </div>
   );
 }
