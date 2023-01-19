@@ -9,6 +9,7 @@ import Signup from "./components/Signup";
 
 import fetchEpisode from "./api/fetchEpisode";
 import populateEpisode from "./api/populateEpisode";
+import UserTracks from "./components/UserTracks";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("");
@@ -65,6 +66,12 @@ function App() {
             setUser={setUser}
             episodeData={episodeData}
           />
+        </div>
+      ) : null}
+
+      {currentPage === "user" ? (
+        <div id="user">
+          <UserTracks user={user} currentPage={currentPage} />
         </div>
       ) : null}
     </div>

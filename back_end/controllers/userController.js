@@ -80,6 +80,7 @@ const userController = {
         res.status(500).json({ error });
       });
   },
+  UserTracks: () => console.log("getting here"),
 };
 
 // import crypto from "crypto";

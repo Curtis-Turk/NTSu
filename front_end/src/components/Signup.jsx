@@ -7,7 +7,7 @@ function Signup({ setUser, setIsLoggedIn }) {
   const signupUser = async (e) => {
     e.preventDefault();
     console.log("Attempting to fetch login");
-    const response = await fetch("http://localhost:3001/user/signup", {
+    await fetch("http://localhost:3001/user/signup", {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },

@@ -8,6 +8,8 @@ export default function Landing({ currentPage }) {
       setMessage("Enter a NTS episode to view tracks");
     } else if (currentPage === "login") {
       setMessage("Login or Signup");
+    } else if (currentPage === "user") {
+      setMessage("Saved tracks");
     } else setMessage("");
   }, [currentPage]);
 
