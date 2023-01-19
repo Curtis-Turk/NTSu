@@ -19,7 +19,7 @@ function Login({ episodeData }) {
   if (episodeData.login) {
     return (
       <form onSubmit={loginUser}>
-        <div>Login</div>
+        <h3>Login</h3>
         <label htmlFor="email">Email</label>
         <input
           type="email"
@@ -42,24 +42,3 @@ function Login({ episodeData }) {
   }
 }
 export default Login;
-
-// function App() {
-//   const [isLoggedIn, setIsLoggedIn] = useState(false);
-//   const [user, setUser] = useState({});
-
-//   return (
-//     <div>
-//       {isLoggedIn ? (
-//         <div>
-//           <p>Welcome, {user.email}</p>
-//           <button onClick={() => setIsLoggedIn(false)}>Logout</button>
-//         </div>
-//       ) : (
-//         <div>
-//           <Login setIsLoggedIn={setIsLoggedIn} setUser={setUser} />
-//           <Signup setIsLoggedIn={setIsLoggedIn} setUser={setUser} />
-//         </div>
-//       )}
-//     </div>
-//   );
-// }

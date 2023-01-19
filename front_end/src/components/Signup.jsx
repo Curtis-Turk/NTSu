@@ -19,7 +19,7 @@ function Signup({ episodeData }) {
   if (episodeData.login) {
     return (
       <form onSubmit={signupUser}>
-        <div>Signup</div>
+        <h3>Signup</h3>
         <label htmlFor="email">Email</label>
         <input
           type="email"

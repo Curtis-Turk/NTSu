@@ -11,6 +11,8 @@ import Signup from "./components/Signup";
 function App() {
   const [episodeData, setEpisodeData] = useState({});
   const [episode, setEpisode] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     if (episode === "login") {
@@ -41,12 +43,26 @@ function App() {
         ) : null}
         <Tracklist tracks={episodeData.allTracks} />
       </div>
-      <div id="login">
-        <Login episodeData={episodeData} />
-      </div>
-      <div id="signup">
-        <Signup episodeData={episodeData} />
-      </div>
+
+      {isLoggedIn ? (
+        <div>
+          <p>Welcome, {user.email}</p>
+          <button onClick={() => setIsLoggedIn(false)}>Logout</button>
+        </div>
+      ) : (
+        <div>
+          <Login
+            setIsLoggedIn={setIsLoggedIn}
+            setUser={setUser}
+            episodeData={episodeData}
+          />
+          <Signup
+            setIsLoggedIn={setIsLoggedIn}
+            setUser={setUser}
+            episodeData={episodeData}
+          />
+        </div>
+      )}
     </div>
   );
 }
