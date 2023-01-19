@@ -24,12 +24,13 @@ const Track = ({ track }) => {
         <div className="track_artist">{track.artist}</div>
         <div className="track_title">{track.title}</div>
       </div>
-
-      <div className="get_details" onClick={getLinks}>
-        +
-      </div>
-      <div className="get_details" onClick={getLinks}>
-        &gt;
+      <div className="track_options">
+        <div className="get_details" onClick={getLinks}>
+          +
+        </div>
+        <div className="get_details" onClick={getLinks}>
+          &gt;
+        </div>
       </div>
       <div className="site_links">
         <SiteLink

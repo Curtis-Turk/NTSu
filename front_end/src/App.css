@@ -72,13 +72,21 @@ li {
 
 .track_details {
   padding-right: 30px;
+  width: 15%;
   white-space: nowrap;
   overflow-x: scroll;
 }
 
+.track_options {
+  display: flex;
+  width: 10%;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
 .site_links {
   display: flex;
-  width: 40%;
+  width: 30%;
   justify-content: space-between;
 }
 
