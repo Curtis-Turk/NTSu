@@ -7,11 +7,11 @@ function UserTracks({ user, currentPage }) {
   const [userTracks, setUserTracks] = useState("");
 
   useEffect(() => {
-    if (currentPage === "user") fetchUserTracks(user);
-    // .then((data) => {
-    //   setUserTracks(data);
-    //   console.log(data);
-    // });
+    if (currentPage === "user")
+      fetchUserTracks(user).then((data) => {
+        setUserTracks(data);
+        console.log(data);
+      });
   }, [currentPage, user]);
 
   return <div>{userTracks}</div>;
