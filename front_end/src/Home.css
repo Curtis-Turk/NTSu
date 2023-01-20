@@ -1,120 +1,130 @@
-h1{
-  color: white;
-  padding: 10px;
-  margin: 0;
-  cursor: pointer;
+h1 {
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+	padding: 10px;
+	margin: 0;
+	cursor: pointer;
 }
 
 input {
-  border: 0;
-  outline: 0;
-  background: transparent;
-  border-bottom: 1px solid white;
+	border: 0;
+	outline: 0;
+	background: transparent;
+	border-bottom: 1px solid white;
 }
 
-textarea, input{
-  color: white
+textarea,
+input {
+	color: white;
+}
+
+.link {
+	text-decoration: none;
+	color: white;
+	font-size: 16px;
+	font-family: 'Univers', sans-serif;
 }
 
 button {
-  background: transparent;
-  border: 0;
-  color: white;
-}
-button:hover{
-  font-size: larger;
-  cursor: pointer;
+	background: transparent;
+	border: 0;
+	color: white;
 }
 
-.header{
-  display:flex; 
-  flex-direction: row;
-  align-items: center;
-  padding: 5px;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  width: 100%;
-  background-color: black;
-  justify-content: space-between;
+button:hover {
+	font-size: larger;
+	cursor: pointer;
 }
 
-h2{
-  padding: 10px;
-  padding-left: 15px;
-  margin: 0;
-  color: black;
-  background-color: white;
+.header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 5px;
+	position: sticky;
+	top: 0;
+	z-index: 999;
+	width: 100%;
+	background-color: black;
+	justify-content: space-between;
 }
 
-.episode-image{
-  width: 75%;
+h2 {
+	padding: 10px;
+	padding-left: 15px;
+	margin: 0;
+	color: black;
+	background-color: white;
+}
+
+.episode-image {
+	width: 75%;
 }
 
 ul {
-  list-style-type: none;
-  padding-top: 10px;
-  background-color: black;
+	list-style-type: none;
+	padding-top: 10px;
+	background-color: black;
 }
 
 .track_artist {
-  text-transform: uppercase;
-  font-weight: bold;
+	text-transform: uppercase;
+	font-weight: bold;
 }
 
 li {
-  background-color: black;
-  padding-bottom: 22px;
-  width: 75%;
-  display: flex;
-  justify-content: space-between;
+	background-color: black;
+	padding-bottom: 22px;
+	width: 75%;
+	display: flex;
+	justify-content: space-between;
 }
 
 .track_details {
-  padding-right: 30px;
-  width: 15%;
-  white-space: nowrap;
-  overflow-x: scroll;
+	padding-right: 30px;
+	width: 15%;
+	white-space: nowrap;
+	overflow-x: scroll;
 }
 
 .track_options {
-  display: flex;
-  width: 10%;
-  justify-content: space-between;
-  flex-direction: row;
+	display: flex;
+	width: 10%;
+	justify-content: space-between;
+	flex-direction: row;
 }
 
 .site_links {
-  display: flex;
-  width: 30%;
-  justify-content: space-between;
+	display: flex;
+	width: 30%;
+	justify-content: space-between;
 }
 
 .get_details {
-  font-weight: bold;
-  font-size: 25px;
-  color: #FFFFFF;
-  text-decoration: none;
+	font-weight: bold;
+	font-size: 25px;
+	color: #ffffff;
+	text-decoration: none;
 }
 
 .get_details:hover {
-  cursor:pointer;
-  color: orange;
-  font-weight: bolder;
- }
-
-.youtube img{
-  width: 40px;
-  height: auto
+	cursor: pointer;
+	color: orange;
+	font-weight: bolder;
 }
 
-.bandcamp img{
-  width: 40px;
-  height: auto
+.youtube img {
+	width: 40px;
+	height: auto;
 }
 
-.discogs img{
-  border-radius: 10px;
-  width: 40px;
-  height: auto
+.bandcamp img {
+	width: 40px;
+	height: auto;
+}
+
+.discogs img {
+	border-radius: 10px;
+	width: 40px;
+	height: auto;
 }

@@ -11,9 +11,17 @@ function Header({ user, setUser }) {
 	};
 
 	const onSubmit = () => {
+		console.log(textInput);
 		if (textInput.match(/nts\.live\/shows.*/g)) {
 			setEpisode(textInput);
-			setTextInput('');
+		}
+	};
+
+	// window.addEventListener()
+	const enterToSubmit = (event) => {
+		if (event.keyCode === 13) {
+			console.log(event.keyCode);
+			onSubmit();
 		}
 	};
 
@@ -22,7 +30,7 @@ function Header({ user, setUser }) {
 			'https://www.nts.live/shows/canyoufeelthesun-w-call-super-parris/episodes/can-you-feel-the-sun-5th-january-2023'
 		);
 		console.log('devEpisode called', episode);
-		setTextInput('');
+		// setTextInput('');
 	};
 
 	const deleteEpisode = () => {
@@ -43,11 +51,12 @@ function Header({ user, setUser }) {
 
 	useEffect(() => {
 		if (episodeLink) document.getElementById('dummylink').click();
+		setEpisode('');
 	}, [episodeLink]);
 
 	return (
 		<div className="header">
-			<Link to="/">
+			<Link className="link" to="/">
 				<h1>NTSu</h1>
 			</Link>
 
@@ -55,17 +64,33 @@ function Header({ user, setUser }) {
 
 			<div className="search">
 				<input type="text" onChange={onChange} value={textInput} />
-				<button onClick={() => onSubmit()}>🔍</button>
+				<button
+					className="link"
+					onClick={() => onSubmit()}
+					onKeyDown={enterToSubmit}
+				>
+					🔍
+				</button>
 			</div>
 
-			<span onClick={() => devEpisode()}>dev🔍</span>
-
-			{user ? <Link to="/user"> 👤 </Link> : null}
+			<button className="link" onClick={() => devEpisode()}>
+				dev🔍
+			</button>
 
 			{user ? (
-				<button onClick={() => setUser(null)}>Logout</button>
+				<Link className="link" to="/user">
+					👤
+				</Link>
+			) : null}
+
+			{user ? (
+				<button className="link" onClick={() => setUser(null)}>
+					Logout
+				</button>
 			) : (
-				<Link to="/login">Login</Link>
+				<Link className="link" to="/login">
+					Login
+				</Link>
 			)}
 		</div>
 	);
