@@ -8,10 +8,9 @@ function UserTracks({ user }) {
 
 	useEffect(() => {
 		if (user.username) {
+			console.log(user);
 			fetchUserTracks(user).then((data) => {
-				console.log('fetching tracks', data);
 				setUserTracks(data);
-				console.log(data);
 			});
 		}
 	}, [user]);

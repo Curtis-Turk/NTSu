@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../App';
 
-function Login({ setIsLoggedIn }) {
+function Login() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [loginMessage, setLoginMessage] = useState('');
@@ -20,7 +20,6 @@ function Login({ setIsLoggedIn }) {
 
 		if (response.message === 'Sign in successful') {
 			setUser({ username: email, token: response.token });
-			setIsLoggedIn(true);
 		}
 		setLoginMessage(response.message);
 	};
