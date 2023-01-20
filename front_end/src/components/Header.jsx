@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function Header() {
+function Header({ user }) {
 	const [textInput, setTextInput] = useState('');
 	const [episode, setEpisode] = useState('');
 	const [episodeLink, setEpisodeLink] = useState(null);
@@ -59,7 +59,7 @@ function Header() {
 				<span onClick={() => devEpisode()}>🔍</span>
 			</div>
 
-			<Link to="/user"> 👤 </Link>
+			{user ? <Link to="/user"> 👤 </Link> : null}
 			<Link to="/login">Login</Link>
 		</div>
 	);
