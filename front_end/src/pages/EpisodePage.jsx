@@ -7,7 +7,7 @@ import populateEpisode from '../api/populateEpisode';
 function EpisodePage() {
 	const [episodeData, setEpisodeData] = useState({});
 	const location = useLocation();
-	const { episode, user } = location.state;
+	const { episode } = location.state;
 
 	useEffect(() => {
 		if (episode) {
@@ -34,7 +34,7 @@ function EpisodePage() {
 
 					<h2>{episodeData.episodeTitle}</h2>
 
-					<Tracklist tracks={episodeData.allTracks} user={user} />
+					<Tracklist tracks={episodeData.allTracks} />
 				</div>
 			) : (
 				<p>no episode data</p>

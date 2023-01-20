@@ -1,21 +1,22 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import fetchUserTracks from "../api/fetchUserTracks";
-import Tracklist from "./Tracklist";
+import { useState } from 'react';
+import { useEffect } from 'react';
+import fetchUserTracks from '../api/fetchUserTracks';
+import Tracklist from './Tracklist';
 
-function UserTracks({ user, currentPage }) {
-  const [userTracks, setUserTracks] = useState([]);
+function UserTracks({ user }) {
+	const [userTracks, setUserTracks] = useState([]);
 
-  useEffect(() => {
-    if (currentPage === "user")
-      fetchUserTracks(user).then((data) => {
-        console.log("fetching tracks", data);
-        setUserTracks(data);
-        console.log(data);
-      });
-  }, [currentPage, user]);
+	useEffect(() => {
+		if (user.username) {
+			fetchUserTracks(user).then((data) => {
+				console.log('fetching tracks', data);
+				setUserTracks(data);
+				console.log(data);
+			});
+		}
+	}, [user]);
 
-  return <Tracklist tracks={userTracks} user={user} />;
+	return <Tracklist tracks={userTracks} />;
 }
 
 export default UserTracks;

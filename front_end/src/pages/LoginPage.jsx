@@ -4,12 +4,11 @@ import { useState } from 'react';
 
 function LoginPage() {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
-	const [user, setUser] = useState({});
 
 	return (
 		<div id="login">
-			<Login setIsLoggedIn={setIsLoggedIn} setUser={setUser} />
-			<Signup setIsLoggedIn={setIsLoggedIn} setUser={setUser} />
+			<Login setIsLoggedIn={setIsLoggedIn} />
+			<Signup setIsLoggedIn={setIsLoggedIn} />
 		</div>
 	);
 }

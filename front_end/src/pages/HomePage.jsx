@@ -6,12 +6,6 @@ function Home() {
 	return (
 		<div>
 			<PageHeader />
-
-			{/* {currentPage === 'user' ? (
-				<div id="user">
-					<UserTracks user={user} currentPage={currentPage} />
-				</div>
-			) : null} */}
 		</div>
 	);
 }

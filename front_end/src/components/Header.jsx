@@ -59,6 +59,7 @@ function Header() {
 				<span onClick={() => devEpisode()}>🔍</span>
 			</div>
 
+			<Link to="/user"> 👤 </Link>
 			<Link to="/login">Login</Link>
 		</div>
 	);
