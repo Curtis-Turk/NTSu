@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function Landing({ currentPage }) {
+export default function PageHeader({ currentPage }) {
   const [message, setMessage] = useState("Enter a NTS episode to view tracks");
 
   useEffect(() => {
