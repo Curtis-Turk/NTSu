@@ -11,6 +11,7 @@ function UserTracks({ user, currentPage }) {
       fetchUserTracks(user).then((data) => {
         console.log("fetching tracks", data);
         setUserTracks(data);
+        console.log(data);
       });
   }, [currentPage, user]);
 

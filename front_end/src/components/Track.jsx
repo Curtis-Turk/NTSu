@@ -22,7 +22,8 @@ const Track = ({ track, user }) => {
   const clickSaveTrack = () => {
     saveTrack(track, user).then((data) => console.log(data));
   };
-
+console.log(track);
+console.log(user);
   return (
     <li>
       <div className="track_details">
