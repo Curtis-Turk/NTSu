@@ -55,9 +55,9 @@ function Header({ user }) {
 
 			<div className="search">
 				<input type="text" onChange={onChange} value={textInput} />
-
-				<span onClick={() => devEpisode()}>🔍</span>
+				<button onClick={() => onSubmit()}>🔍</button>
 			</div>
+			<span onClick={() => devEpisode()}>🔍</span>
 
 			{user ? <Link to="/user"> 👤 </Link> : null}
 			<Link to="/login">Login</Link>
