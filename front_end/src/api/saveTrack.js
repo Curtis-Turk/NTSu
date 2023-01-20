@@ -9,7 +9,7 @@ const saveTrack = async (track, user) => {
       },
     }).then((response) => response.json());
   }
-  console.log("User not logged in");
+  return { message: "User not logged in" };
 };
 
 export default saveTrack;

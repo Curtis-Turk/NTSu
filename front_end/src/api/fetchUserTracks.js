@@ -8,7 +8,6 @@ const fetchUserTracks = async (user) => {
     },
   }).then((response) => response.json());
 
-  console.log(userTrackIds);
   return userTrackIds;
 };
 

@@ -1,35 +1,27 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import Track from "../models/Track.js";
-
 import User from "../models/User.js";
 
 const userController = {
   Signup: (req, res) => {
-    console.log("signin up", req.body);
-
     const { email, password } = req.body;
 
-    // Check if user already exists
     User.findOne({ email })
       .then((user) => {
-        if (user) {
+        if (user)
           return res.status(409).json({ message: "Email already exists" });
-        }
 
-        // Hash password
         bcrypt.hash(password, 10, (err, hash) => {
           if (err) {
             return res.status(500).json({ error: err });
           }
 
-          // Create new user
           const newUser = new User({
             email,
             password: hash,
           });
 
-          // Save user to database
           newUser
             .save()
             .then((result) => {
@@ -45,8 +37,6 @@ const userController = {
       });
   },
   Login: (req, res) => {
-    console.log("loggin in", req.body);
-
     const { email, password } = req.body;
 
     // Find user by email
@@ -63,14 +53,11 @@ const userController = {
           }
 
           if (result) {
-            // Create JWT
-
             const token = jwt.sign(
               { email, userId: user._id },
               process.env.JWT_KEY,
               { expiresIn: "1h" }
             );
-
             return res.status(200).json({ message: "Auth successful", token });
           }
 
@@ -81,10 +68,9 @@ const userController = {
         res.status(500).json({ error });
       });
   },
+
   UserTracks: async (req, res) => {
-    console.log("getting here");
     const { username } = req.body;
-    console.log("usrname", username);
     User.findOne({ email: username }).then(async (user) => {
       const userTracks = await Track.find({ _id: { $in: user.addedTracks } });
       res.send(userTracks);
