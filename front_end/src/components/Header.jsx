@@ -1,70 +1,67 @@
-import { useState } from "react";
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-function Header({
-  user,
-  isLoggedIn,
-  setIsLoggedIn,
-  setCurrentPage,
-  setEpisode,
-}) {
-  const [textInput, setTextInput] = useState("");
+function Header() {
+	const [textInput, setTextInput] = useState('');
+	const [episode, setEpisode] = useState('');
+	const [episodeLink, setEpisodeLink] = useState(null);
 
-  const onChange = (e) => {
-    setTextInput(e.target.value);
-  };
+	const onChange = (e) => {
+		setTextInput(e.target.value);
+	};
 
-  const onSubmit = () => {
-    if (textInput.match(/nts\.live\/shows.*/g)) {
-      setEpisode(textInput);
-      setTextInput("");
-      setCurrentPage("episode");
-    }
-  };
+	const onSubmit = () => {
+		if (textInput.match(/nts\.live\/shows.*/g)) {
+			setEpisode(textInput);
+			setTextInput('');
+		}
+	};
 
-  const devEpisode = () => {
-    setEpisode(
-      "https://www.nts.live/shows/canyoufeelthesun-w-call-super-parris/episodes/can-you-feel-the-sun-5th-january-2023"
-    );
+	const devEpisode = () => {
+		setEpisode(
+			'https://www.nts.live/shows/canyoufeelthesun-w-call-super-parris/episodes/can-you-feel-the-sun-5th-january-2023'
+		);
+		console.log('devEpisode called', episode);
+		setTextInput('');
+	};
 
-    setTextInput("");
-    setCurrentPage("episode");
-  };
+	const deleteEpisode = () => {
+		fetch('http://localhost:3001/episode/devepisode', {
+			method: 'DELETE',
+			headers: { 'Content-Type': 'application/json' },
+		});
+		setEpisode('');
+	};
 
-  const deleteEpisode = () => {
-    fetch("http://localhost:3001/episode/devepisode", {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-    });
-    setEpisode("");
-  };
+	useEffect(() => {
+		if (episode) {
+			setEpisodeLink(
+				<Link id="dummylink" to="/episode" state={{ episode }}></Link>
+			);
+		}
+	}, [episode]);
 
-  return (
-    <div className="header">
-      <h1 onClick={() => setCurrentPage("")}>NTSu</h1>
-      <div className="search">
-        <input type="text" onChange={onChange} value={textInput} />
-        <button onClick={() => onSubmit()} type="button">
-          🔍
-        </button>
-      </div>
-      <button onClick={() => devEpisode()} type="button">
-        Dev🔍
-      </button>
-      <button onClick={() => deleteEpisode()} type="button">
-        delete
-      </button>
-      {isLoggedIn ? (
-        <>
-          <button onClick={() => setIsLoggedIn(false)}>Logout</button>
-          <button onClick={() => setCurrentPage("user")}>👤</button>
-        </>
-      ) : (
-        <button onClick={() => setCurrentPage("login")} type="button">
-          login
-        </button>
-      )}
-    </div>
-  );
+	useEffect(() => {
+		if (episodeLink) document.getElementById('dummylink').click();
+	}, [episodeLink]);
+
+	return (
+		<div className="header">
+			<Link to="/">
+				<h1>NTSu</h1>
+			</Link>
+
+			{episodeLink}
+
+			<div className="search">
+				<input type="text" onChange={onChange} value={textInput} />
+
+				<span onClick={() => devEpisode()}>🔍</span>
+			</div>
+
+			<Link to="/login">Login</Link>
+		</div>
+	);
 }
 
 export default Header;
