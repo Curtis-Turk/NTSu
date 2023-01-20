@@ -14,7 +14,7 @@ function App() {
 	return (
 		<UserContext.Provider value={{ user, setUser }}>
 			<Router>
-				<Header user={user} />
+				<Header user={user} setUser={setUser} />
 				<Routes>
 					<Route path="/" element={<HomePage />} />
 					<Route path="/login" element={<LoginPage />} />
