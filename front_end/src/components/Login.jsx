@@ -3,6 +3,7 @@ import { useState } from "react";
 function Login({ setUser, setIsLoggedIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginMessage, setLoginMessage] = useState("");
 
   const loginUser = async (e) => {
     e.preventDefault();
@@ -13,15 +14,19 @@ function Login({ setUser, setIsLoggedIn }) {
       headers: { "Content-Type": "application/json" },
     }).then((response) => response.json());
 
-    if (response.message === "Auth successful") {
+    if (response.message === "Sign in successful") {
       setUser({ username: email, token: response.token });
       setIsLoggedIn(true);
-    }
+    };
+    setLoginMessage(response.message);
   };
 
   return (
     <form onSubmit={loginUser}>
       <h3>Login</h3>
+      { loginMessage ? 
+      <h4> { loginMessage } </h4> : null
+      }
       <label htmlFor="email">Email</label>
       <input
         type="email"

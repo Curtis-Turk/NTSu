@@ -3,22 +3,27 @@ import { useState } from "react";
 function Signup({ setUser, setIsLoggedIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [signupMessage, setSignupMessage] = useState("");
 
   const signupUser = async (e) => {
     e.preventDefault();
 
-    await fetch("http://localhost:3001/user/signup", {
+    const response = await fetch("http://localhost:3001/user/signup", {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
     }).then((response) => {
-      return response.json();
+      return response.json()
     });
+    setSignupMessage(response.message);
   };
 
   return (
     <form onSubmit={signupUser}>
       <h3>Signup</h3>
+      { signupMessage ? 
+      <h4> { signupMessage } </h4> : null
+      }
       <label htmlFor="email">Email</label>
       <input
         type="email"
