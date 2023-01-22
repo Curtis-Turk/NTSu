@@ -10,25 +10,18 @@ import { useContext } from "react";
 import { UserContext } from "../App";
 
 const Track = ({ track }) => {
-  const [bandcampTrackUrl, setBandcampTrackUrl] = useState(track.bandcampUrl);
-  const [discogsTrackUrl, setDiscogsTrackUrl] = useState(track.discogsUrl);
-  const [youtubeTrackUrl, setYoutubeTrackUrl] = useState(track.youtubeUrl);
+  const [fetchedTrack, setFetchedTrack] = useState(track);
   const { user } = useContext(UserContext);
-
   const location = useLocation();
-  console.log(location.pathname);
 
   const getLinks = async () => {
-    const { youtubeUrl, discogsUrl, bandcampUrl } = await fetchTrack(track);
-
-    setBandcampTrackUrl(bandcampUrl);
-    setDiscogsTrackUrl(discogsUrl);
-    setYoutubeTrackUrl(youtubeUrl);
+    setFetchedTrack(await fetchTrack(track));
   };
 
   const clickSaveTrack = () => {
     saveTrack(track, user).then((data) => console.log(data));
   };
+
   return (
     <li>
       <div className="track_details">
@@ -48,17 +41,17 @@ const Track = ({ track }) => {
       <div className="site_links">
         <SiteLink
           className={"bandcamp"}
-          trackInfo={bandcampTrackUrl}
+          trackInfo={fetchedTrack.bandcampUrl}
           icon={bandcampIcon}
         />
         <SiteLink
           className={"discogs"}
-          trackInfo={discogsTrackUrl}
+          trackInfo={fetchedTrack.discogsUrl}
           icon={discogIcon}
         />
         <SiteLink
           className={"youtube"}
-          trackInfo={youtubeTrackUrl}
+          trackInfo={fetchedTrack.youtubeUrl}
           icon={youtubeIcon}
         />
       </div>
