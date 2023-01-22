@@ -1,26 +1,29 @@
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useContext, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import bandcampIcon from "../images/bandcampIcon.png";
 import discogIcon from "../images/discogsIcon.png";
 import youtubeIcon from "../images/youtubeIcon.png";
-import SiteLink from "./SiteLink";
 import fetchTrack from "../api/fetchTrack";
 import saveTrack from "../api/saveTrack";
-import { useContext } from "react";
+import SiteLink from "./SiteLink";
 import { UserContext } from "../App";
 
 const Track = ({ track }) => {
   const [fetchedTrack, setFetchedTrack] = useState(track);
   const { user } = useContext(UserContext);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const getLinks = async () => {
-    console.log("Getting link");
     setFetchedTrack(await fetchTrack(track));
   };
 
   const clickSaveTrack = () => {
-    saveTrack(track, user).then((data) => console.log(data));
+    saveTrack(track, user).then((data) => {
+      if (data.message === "Auth Expired") {
+        navigate("/login");
+      }
+    });
   };
 
   return (

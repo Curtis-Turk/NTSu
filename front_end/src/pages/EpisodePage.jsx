@@ -19,7 +19,6 @@ function EpisodePage() {
           setEpisodeData(data);
         });
     }
-    console.log(episode);
   }, [episode]);
 
   return (
