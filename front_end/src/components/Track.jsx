@@ -15,6 +15,7 @@ const Track = ({ track }) => {
   const location = useLocation();
 
   const getLinks = async () => {
+    console.log("Getting link");
     setFetchedTrack(await fetchTrack(track));
   };
 
@@ -22,10 +23,9 @@ const Track = ({ track }) => {
     saveTrack(track, user).then((data) => console.log(data));
   };
 
-  if (user) console.log("added Tracks", user.addedTracks, fetchedTrack._id);
   return (
     <li>
-      <div className="track_details">
+      <div className="track_details" onClick={getLinks}>
         <div className="track_artist">{track.artist}</div>
         <div className="track_title">{track.title}</div>
       </div>
