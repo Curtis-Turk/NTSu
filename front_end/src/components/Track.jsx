@@ -22,6 +22,7 @@ const Track = ({ track }) => {
     saveTrack(track, user).then((data) => console.log(data));
   };
 
+  if (user) console.log("added Tracks", user.addedTracks, fetchedTrack._id);
   return (
     <li>
       <div className="track_details">
@@ -29,14 +30,16 @@ const Track = ({ track }) => {
         <div className="track_title">{track.title}</div>
       </div>
       <div className="track_options">
-        {user && location.pathname === "/episode" ? (
+        <div className="get_details" onClick={getLinks}>
+          &gt;
+        </div>
+        {user &&
+        location.pathname === "/episode" &&
+        !user.addedTracks.includes(fetchedTrack._id) ? (
           <div className="get_details" onClick={clickSaveTrack}>
             +
           </div>
         ) : null}
-        <div className="get_details" onClick={getLinks}>
-          &gt;
-        </div>
       </div>
       <div className="site_links">
         <SiteLink
