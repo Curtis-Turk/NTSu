@@ -1,5 +1,5 @@
 import Track from "../models/Track.js";
-import getTrackLinks from "../api/trackLinksFetch.js";
+import getTrackLinks from "../api/getTrackLinks.js";
 import User from "../models/User.js";
 
 const trackController = {

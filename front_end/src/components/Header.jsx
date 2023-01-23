@@ -11,26 +11,19 @@ function Header({ user, setUser }) {
   };
 
   const onSubmit = () => {
-    console.log(textInput);
     if (textInput.match(/nts\.live\/shows.*/g)) {
       setEpisode(textInput);
     }
   };
 
-  // window.addEventListener()
   const enterToSubmit = (event) => {
-    if (event.keyCode === 13) {
-      console.log(event.keyCode);
-      onSubmit();
-    }
+    if (event.keyCode === 13) onSubmit();
   };
 
   const devEpisode = () => {
     setEpisode(
       "https://www.nts.live/shows/canyoufeelthesun-w-call-super-parris/episodes/can-you-feel-the-sun-5th-january-2023"
     );
-    console.log("devEpisode called", episode);
-    // setTextInput('');
   };
 
   // const deleteEpisode = () => {

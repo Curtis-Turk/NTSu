@@ -58,7 +58,7 @@ h2 {
 }
 
 .episode-image {
-  width: 75%;
+  width: 40rem;
 }
 
 ul {
@@ -85,6 +85,7 @@ li {
   width: 15%;
   white-space: nowrap;
   overflow-x: scroll;
+  scrollbar-width: none;
   cursor: pointer;
 }
 

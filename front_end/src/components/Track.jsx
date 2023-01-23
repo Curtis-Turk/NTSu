@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useEffect, useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import bandcampIcon from "../images/bandcampIcon.png";
 import discogIcon from "../images/discogsIcon.png";
@@ -9,7 +9,7 @@ import SiteLink from "./SiteLink";
 import { UserContext } from "../App";
 
 const Track = ({ track }) => {
-  const [fetchedTrack, setFetchedTrack] = useState(track);
+  const [fetchedTrack, setFetchedTrack] = useState("");
   const { user } = useContext(UserContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -26,11 +26,15 @@ const Track = ({ track }) => {
     });
   };
 
+  useEffect(() => {
+    setFetchedTrack(track);
+  }, [track]);
+
   return (
     <li>
       <div className="track_details" onClick={getLinks}>
-        <div className="track_artist">{track.artist}</div>
-        <div className="track_title">{track.title}</div>
+        <div className="track_artist">{fetchedTrack.artist}</div>
+        <div className="track_title">{fetchedTrack.title}</div>
       </div>
       <div className="track_options">
         <div className="get_details" onClick={getLinks}>

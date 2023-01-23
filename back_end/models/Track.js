@@ -11,12 +11,15 @@ const trackSchema = new mongoose.Schema({
   },
   bandcampUrl: {
     type: String,
+    default: "",
   },
   youtubeUrl: {
     type: String,
+    default: "",
   },
   discogsUrl: {
     type: String,
+    default: "",
   },
 });
 
