@@ -7,7 +7,7 @@ import populateEpisode from "../api/populateEpisode";
 function EpisodePage() {
   const [episodeData, setEpisodeData] = useState({});
   const location = useLocation();
-  const { episode } = location.state;
+  const { episode } = location.state || "";
 
   useEffect(() => {
     if (episode) {

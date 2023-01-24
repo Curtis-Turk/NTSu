@@ -1,13 +1,15 @@
-import '../Home.css';
+import "../Home.css";
 
-import PageHeader from '../components/PageHeader';
+import PageHeader from "../components/PageHeader";
+import RecentEpisodes from "../components/RecentEpisodes";
 
 function Home() {
-	return (
-		<div>
-			<PageHeader />
-		</div>
-	);
+  return (
+    <div>
+      <PageHeader />
+      <RecentEpisodes />
+    </div>
+  );
 }
 
 export default Home;
