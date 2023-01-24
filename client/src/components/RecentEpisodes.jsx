@@ -1,17 +1,25 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import fetchRecentEpisodes from "../api/fetchRecentEpisodes";
 
-function episodeElement(episode, index) {
+function episodeElement({ episodeUrl, episodeTitle, episodeImage }) {
+  episodeUrl = "https://www.nts.live" + episodeUrl;
+
+  console.log(episodeUrl);
+
   return (
-    <div key={index} class="recent-episode">
-      <div>{episode.episodeTitle}</div>
-      <img
-        className="recent-episode-image"
-        alt=""
-        src={episode.episodeImage}
-      ></img>
-    </div>
+    <Link
+      key={episodeTitle}
+      id={episodeTitle}
+      to="/episode"
+      state={{ episodeUrl }}
+    >
+      <div className="recent-episode">
+        <div>{episodeTitle}</div>
+        <img className="recent-episode-image" alt="" src={episodeImage}></img>
+      </div>
+    </Link>
   );
 }
 
@@ -22,8 +30,8 @@ function RecentEpisodes() {
     fetchRecentEpisodes().then((data) => setRecentEpisodeData(data));
   }, []);
 
-  const listEpisodes = recentEpisodeData?.map((ep, i) => {
-    return episodeElement(ep, i);
+  const listEpisodes = recentEpisodeData?.map((ep) => {
+    return episodeElement(ep);
   });
 
   if (listEpisodes) return <ul>{listEpisodes}</ul>;
