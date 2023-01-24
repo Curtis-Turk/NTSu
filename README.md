@@ -12,4 +12,4 @@ During dev, run `npm i` in the parent folder and in both the client and server f
 
 ### Starting servers
 
-Then `npm run dev` in the parent folder or `npm start` in both front_end and back_end folders.
+Then `npm run dev` in the parent folder, or `npm start` in both client and server folders.
