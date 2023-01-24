@@ -6,11 +6,11 @@ import youtubeIcon from "../images/youtubeIcon.png";
 import fetchTrack from "../api/fetchTrack";
 import saveTrack from "../api/saveTrack";
 import SiteLink from "./SiteLink";
-import { UserContext } from "../App";
+import { Context } from "../App";
 
 const Track = ({ track }) => {
   const [fetchedTrack, setFetchedTrack] = useState("");
-  const { user } = useContext(UserContext);
+  const { user } = useContext(Context);
   const location = useLocation();
   const navigate = useNavigate();
 

@@ -1,12 +1,12 @@
 import { useState, useContext } from "react";
-import { UserContext } from "../App";
+import { Context } from "../App";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginMessage, setLoginMessage] = useState("");
 
-  const { setUser } = useContext(UserContext);
+  const { setUser } = useContext(Context);
 
   const loginUser = async (e) => {
     e.preventDefault();

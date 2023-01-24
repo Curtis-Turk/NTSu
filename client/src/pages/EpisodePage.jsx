@@ -21,8 +21,6 @@ function EpisodePage() {
     }
   }, [episode]);
 
-  console.log(episode);
-
   return (
     <>
       {Object.keys(episodeData).length ? (

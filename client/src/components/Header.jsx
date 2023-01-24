@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function Header({ user, setUser }) {
+function Header({ episode, setEpisode, user, setUser }) {
   const [textInput, setTextInput] = useState("");
-  const [episode, setEpisode] = useState("");
+  // const [episode, setEpisode] = useState("");
   const [episodeLink, setEpisodeLink] = useState(null);
 
   const onChange = (e) => {
@@ -45,7 +45,7 @@ function Header({ user, setUser }) {
   useEffect(() => {
     if (episodeLink) document.getElementById("dummylink").click();
     setEpisode("");
-  }, [episodeLink]);
+  }, [episodeLink, setEpisode]);
 
   return (
     <div className="header">
