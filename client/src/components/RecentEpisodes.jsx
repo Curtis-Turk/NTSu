@@ -18,8 +18,10 @@ function RecentEpisodes() {
         to="/episode"
         onClick={() => setEpisode(episodeUrl)}
       >
-        <div>{episodeTitle}</div>
-        <img className="recent-episode-image" alt="" src={episodeImage}></img>
+        <div className="recent-episode-image-container">
+          <img className="recent-episode-image" alt="" src={episodeImage}></img>
+        </div>
+        <div className="recent-episode-title">{episodeTitle}</div>
       </Link>
     );
   }
