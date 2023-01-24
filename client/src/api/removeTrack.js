@@ -1,6 +1,6 @@
-const saveTrack = async (track, user) => {
+const removeTrack = async (track, user) => {
 	if (user.username) {
-		return fetch('http://localhost:3001/track/save', {
+		return fetch('http://localhost:3001/track/remove', {
 			method: 'POST',
 			body: JSON.stringify({ track: track, user: user.username }),
 			headers: {
@@ -12,4 +12,4 @@ const saveTrack = async (track, user) => {
 	return { message: 'User not logged in' };
 };
 
-export default saveTrack;
+export default removeTrack;
