@@ -1,6 +1,8 @@
 # NTSu
 
-A track finder for the NTS episodes to easily find links to songs from various platforms and create a library of favourites
+A track finder for the NTS episodes.
+
+To easily find links to listen or buy from various platforms and create a library of favourites
 
 ## Available Scripts
 
