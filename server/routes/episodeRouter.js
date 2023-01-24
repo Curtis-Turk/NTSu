@@ -6,6 +6,6 @@ import episodeController from "../controllers/episodeController.js";
 router.post("/", episodeController.Create);
 router.post("/populate", episodeController.PopulateTracks);
 router.delete("/devepisode/", episodeController.Delete);
-router.post("/recents", episodeController.Recents);
+router.get("/recents", episodeController.Recents);
 
 export default router;

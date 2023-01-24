@@ -2,6 +2,7 @@ import Episode from "../models/Episode.js";
 import Track from "../models/Track.js";
 import ntsScraper from "../api/ntsScraper.js";
 import storeEpisodeTracks from "../utils/storeEpisodeTracks.js";
+import ntsRecentEpisodes from "../api/ntsRecentEpisodes.js";
 
 const episodeController = {
   Create: (req, res) => {
@@ -41,7 +42,12 @@ const episodeController = {
     });
     await Track.deleteMany();
   },
-  Recents: async (req, res) => {},
+
+  Recents: async (req, res) => {
+    console.log("fetching recent episodes");
+    const recentEpisodes = await ntsRecentEpisodes();
+    res.send(recentEpisodes);
+  },
 };
 
 export default episodeController;
