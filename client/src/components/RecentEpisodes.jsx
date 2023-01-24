@@ -14,13 +14,12 @@ function RecentEpisodes() {
       <Link
         key={episodeTitle}
         id={episodeTitle}
+        className="recent-episode"
         to="/episode"
         onClick={() => setEpisode(episodeUrl)}
       >
-        <div className="recent-episode">
-          <div>{episodeTitle}</div>
-          <img className="recent-episode-image" alt="" src={episodeImage}></img>
-        </div>
+        <div>{episodeTitle}</div>
+        <img className="recent-episode-image" alt="" src={episodeImage}></img>
       </Link>
     );
   }
@@ -33,7 +32,13 @@ function RecentEpisodes() {
     return episodeElement(ep);
   });
 
-  if (listEpisodes) return <ul>{listEpisodes}</ul>;
+  if (listEpisodes)
+    return (
+      <>
+        <h3>Latest</h3>
+        <ul className="recent-episode-list">{listEpisodes}</ul>
+      </>
+    );
 }
 
 export default RecentEpisodes;

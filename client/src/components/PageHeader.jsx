@@ -5,7 +5,7 @@ export default function PageHeader({ currentPage }) {
 
   useEffect(() => {
     if (!currentPage) {
-      setMessage("Enter a NTS episode to view tracks");
+      setMessage("Search or click an episode to view tracks");
     } else if (currentPage === "LoginPage") {
       setMessage("Login or Signup");
     } else if (currentPage === "UserPage") {

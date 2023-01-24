@@ -136,3 +136,14 @@ li {
   width: 40px;
   height: auto;
 }
+
+.recent-episode-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.recent-episode {
+  padding: 12px;
+  border-width: 10px;
+  border: #ffffff;
+}
