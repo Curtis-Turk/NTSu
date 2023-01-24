@@ -41,6 +41,7 @@ const episodeController = {
     });
     await Track.deleteMany();
   },
+  Recents: async (req, res) => {},
 };
 
 export default episodeController;
