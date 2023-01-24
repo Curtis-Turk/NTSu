@@ -1,5 +1,10 @@
 {
   "dependencies": {
     "dotenv": "^16.0.3"
+  },
+  "scripts": {
+    "server": "npm start --prefix server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   }
 }
