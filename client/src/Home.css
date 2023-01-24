@@ -58,9 +58,9 @@ h2 {
 }
 
 .episode-image {
-  width: 40rem;
+  /* width: 40rem; */
   height: 30rem;
-  object-fit: contain;
+  /* object-fit: contain; */
 }
 
 ul {
