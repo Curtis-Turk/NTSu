@@ -14,24 +14,12 @@ function TrackSaveButton({ track }) {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const trackSaveOptions = () => {
-    if (
-      user &&
-      location.pathname === "/episode" &&
-      !user.addedTracks.includes(track._id)
-    ) {
-      setUserOptionButton({ option: "+", function: clickSaveTrack });
-    } else if (user.addedTracks.includes(track._id)) {
-      setUserOptionButton({ option: "-", function: clickRemoveTrack });
-    }
-  };
-
   const clickSaveTrack = async () => {
     await saveTrack(track, user).then((data) => {
       if (data.message === "Auth Expired") navigate("/login");
       user.addedTracks = data.addedTracks;
     });
-    trackSaveOptions();
+    setUserOptionButton({ option: "-", function: clickRemoveTrack });
   };
 
   const clickRemoveTrack = async () => {
@@ -41,17 +29,33 @@ function TrackSaveButton({ track }) {
         user.addedTracks = data.addedTracks;
       }
     });
-    trackSaveOptions();
+    setUserOptionButton({ option: "+", function: clickSaveTrack });
   };
 
   return (
     <div
       className="get_details"
       onClick={
-        userOptionButton.function ? userOptionButton.function : clickSaveTrack
+        userOptionButton.function
+          ? userOptionButton.function
+          : user &&
+            !user.addedTracks.includes(track._id) &&
+            location.pathname === "/episode"
+          ? clickSaveTrack
+          : user && user.addedTracks.includes(track._id)
+          ? clickRemoveTrack
+          : null
       }
     >
-      {userOptionButton.option ? userOptionButton.option : "+"}
+      {userOptionButton.option
+        ? userOptionButton.option
+        : user &&
+          !user.addedTracks.includes(track._id) &&
+          location.pathname === "/episode"
+        ? "+"
+        : user && user.addedTracks.includes(track._id)
+        ? "-"
+        : null}
     </div>
   );
 }
