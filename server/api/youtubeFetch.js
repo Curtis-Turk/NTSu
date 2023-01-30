@@ -9,7 +9,6 @@ const youtubeSearch = async ({ searchTitle, searchArtist }) => {
   return fetch(fullUrl)
     .then((response) => response.json())
     .then((data) => {
-      // console.log(data);
       if (data.items) {
         return `https://www.youtube.com/watch?v=${data.items[0].id.videoId}`;
       }

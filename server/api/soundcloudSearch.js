@@ -30,6 +30,11 @@ import puppeteer from "puppeteer";
 //   await browser.close();
 // })();
 
-const soundcloudSearch = async ({ searchTitle, searchArtist }) => {};
+const soundcloudSearch = async ({ searchTitle, searchArtist }) => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto("https://soundcloud.com/discover");
+  await page.type(".headerSearch__input", `${searchTitle} ${searchArtist}`);
+};
 
 export default soundcloudSearch;
