@@ -17,7 +17,6 @@ const discogsSearch = async ({ searchTitle, searchArtist }) => {
         }
         return "";
       }
-      console.log("No RESULTS");
       return "";
     });
 };

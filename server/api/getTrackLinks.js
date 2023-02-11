@@ -16,8 +16,8 @@ const getTrackLinks = async (track) => {
   if (!track.youtubeUrl)
     track.youtubeUrl = await youtubeSearch({ searchTitle, searchArtist });
 
-  if (!track.soundcloudUrl)
-    track.soundcloudUrl = await soundcloudSearch({ searchTitle, searchArtist });
+  // if (!track.soundcloudUrl)
+  //   track.soundcloudUrl = await soundcloudSearch({ searchTitle, searchArtist });
   return track;
 };
 
